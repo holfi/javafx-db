@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.store.DbController">
+   <children>
+      <TabPane prefHeight="600.0" prefWidth="803.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Статус коды">
+               <content>
+              <AnchorPane prefHeight="571.0" prefWidth="751.0">
+                     <children>
+                        <TableView prefHeight="367.0" prefWidth="803.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="ID" />
+                              <TableColumn prefWidth="75.0" text="Код" />
+                              <TableColumn prefWidth="75.0" text="Название" />
+                           </columns>
+                        </TableView>
+                        <TextField layoutX="14.0" layoutY="407.0" />
+                        <TextField layoutX="181.0" layoutY="407.0" />
+                        <Button layoutX="197.0" layoutY="527.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Найти">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="23.0" layoutY="379.0" prefWidth="20.0" text="ID">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="431.0" layoutY="527.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Удалить">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <TextField layoutX="346.0" layoutY="406.0" />
+                        <Label layoutX="189.0" layoutY="378.0" text="Код">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="350.0" layoutY="378.0" text="Название">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="543.0" layoutY="527.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Очистить">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="316.0" layoutY="527.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Добавить">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </content>
+          </Tab>
+            <Tab text="XSD">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="785.0">
+                     <children>
+                        <TableView prefHeight="367.0" prefWidth="803.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="ID" />
+                              <TableColumn prefWidth="75.0" text="ID типа" />
+                              <TableColumn prefWidth="75.0" text="ID статуса" />
+                              <TableColumn prefWidth="75.0" text="ID услуги" />
+                              <TableColumn prefWidth="112.0" text="URL" />
+                              <TableColumn prefWidth="105.0" text="Неймспейс" />
+                              <TableColumn prefWidth="95.0" text="Код документа" />
+                              <TableColumn prefWidth="99.0" text="Актуальная" />
+                           </columns>
+                        </TableView>
+                        <TextField layoutX="551.0" layoutY="403.0" />
+                        <TextField layoutX="386.0" layoutY="403.0" />
+                        <Label layoutX="394.0" layoutY="378.0" prefHeight="25.0" prefWidth="82.0" text="ID статуса">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField layoutX="223.0" layoutY="403.0" />
+                        <Label layoutX="558.0" layoutY="378.0" text="ID услуги">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="233.0" layoutY="378.0" text="ID типа">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField layoutX="60.0" layoutY="467.0" />
+                        <Label layoutX="69.0" layoutY="439.0" text="URL">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField layoutX="223.0" layoutY="467.0" />
+                        <TextField layoutX="388.0" layoutY="467.0" />
+                        <CheckBox layoutX="558.0" layoutY="469.0" mnemonicParsing="false" text="Актуальная">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </CheckBox>
+                        <Button layoutX="168.0" layoutY="518.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Найти">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="406.0" layoutY="518.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Удалить">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="522.0" layoutY="518.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Очистить">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="287.0" layoutY="518.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Добавить">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <TextField layoutX="60.0" layoutY="403.0" />
+                        <Label layoutX="67.0" layoutY="378.0" text="ID">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="233.0" layoutY="439.0" text="Неймспейс">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="394.0" layoutY="439.0" text="Код документа">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Пользователи">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="785.0">
+                     <children>
+                        <TableView layoutY="7.0" prefHeight="367.0" prefWidth="803.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="C1" />
+                              <TableColumn prefWidth="75.0" text="C2" />
+                           </columns>
+                        </TableView>
+                        <Button layoutX="165.0" layoutY="527.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Найти">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="404.0" layoutY="527.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Удалить">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="522.0" layoutY="527.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Очистить">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="284.0" layoutY="527.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Добавить">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+          <Tab text="Тип">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="785.0">
+                     <children>
+                        <TableView fx:id="typeTable" prefHeight="367.0" prefWidth="803.0" AnchorPane.bottomAnchor="204.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="typeIdCol" prefWidth="75.0" text="ID" />
+                            <TableColumn fx:id="typeLabelCol" prefWidth="143.0" text="Название типа" />
+                              <TableColumn fx:id="typeDescCol" minWidth="7.0" prefWidth="450.0" text="Описание" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="typeFind" layoutX="173.0" layoutY="519.0" mnemonicParsing="false" onAction="#typeFind" prefHeight="31.0" prefWidth="100.0" text="Найти">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="410.0" layoutY="519.0" mnemonicParsing="false" onAction="#typeDelete" prefHeight="31.0" prefWidth="100.0" text="Удалить">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="528.0" layoutY="519.0" mnemonicParsing="false" onAction="#typeClear" prefHeight="31.0" prefWidth="100.0" text="Очистить">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="292.0" layoutY="519.0" mnemonicParsing="false" onAction="#typeAdd" prefHeight="31.0" prefWidth="100.0" text="Добавить">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <TextField fx:id="typeId" layoutX="30.0" layoutY="405.0" />
+                        <TextField fx:id="typeLabel" layoutX="197.0" layoutY="405.0" />
+                        <Label layoutX="37.0" layoutY="380.0" prefWidth="20.0" text="ID">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="typeDesc" layoutX="362.0" layoutY="404.0" prefHeight="25.0" prefWidth="414.0" />
+                        <Label layoutX="203.0" layoutY="380.0" text="Название типа">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="365.0" layoutY="380.0" text="Описание">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Коды услуг">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="785.0">
+                     <children>
+                        <TableView prefHeight="367.0" prefWidth="803.0" AnchorPane.bottomAnchor="204.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <columns>
+                              <TableColumn prefWidth="117.0" text="ID" />
+                              <TableColumn prefWidth="126.0" text="Код услуги" />
+                           </columns>
+                        </TableView>
+                        <Button layoutX="173.0" layoutY="519.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Найти">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="406.0" layoutY="519.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Удалить">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="522.0" layoutY="519.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Очистить">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="292.0" layoutY="519.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Добавить">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <TextField layoutX="50.0" layoutY="405.0" />
+                        <TextField layoutX="217.0" layoutY="405.0" />
+                        <Label layoutX="58.0" layoutY="377.0" prefWidth="20.0" text="ID">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="225.0" layoutY="377.0" text="Код услуги">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
