@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -19,47 +18,47 @@
                <content>
               <AnchorPane prefHeight="571.0" prefWidth="751.0">
                      <children>
-                        <TableView prefHeight="367.0" prefWidth="803.0">
+                        <TableView fx:id="statusTable" prefHeight="367.0" prefWidth="803.0">
                            <columns>
-                              <TableColumn prefWidth="75.0" text="ID" />
-                              <TableColumn prefWidth="75.0" text="Код" />
-                              <TableColumn prefWidth="75.0" text="Название" />
+                              <TableColumn fx:id="statusIdCol" prefWidth="75.0" text="ID" />
+                              <TableColumn fx:id="statusCodeCol" prefWidth="75.0" text="Код" />
+                              <TableColumn fx:id="statusNameCol" prefWidth="75.0" text="Название" />
                            </columns>
                         </TableView>
-                        <TextField layoutX="14.0" layoutY="407.0" />
-                        <TextField layoutX="181.0" layoutY="407.0" />
-                        <Button layoutX="197.0" layoutY="527.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Найти">
+                        <TextField fx:id="statusId" layoutX="14.0" layoutY="407.0" />
+                        <TextField fx:id="statusCode" layoutX="181.0" layoutY="407.0" />
+                        <Button layoutX="197.0" layoutY="527.0" mnemonicParsing="false" onAction="#statusFind" prefHeight="31.0" prefWidth="100.0" text="Найти">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Label layoutX="15.0" layoutY="382.0" prefWidth="20.0" text="ID">
+                        <Label layoutX="23.0" layoutY="379.0" prefWidth="20.0" text="ID">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <Button layoutX="431.0" layoutY="527.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Удалить">
+                        <Button layoutX="431.0" layoutY="527.0" mnemonicParsing="false" onAction="#statusDelete" prefHeight="31.0" prefWidth="100.0" text="Удалить">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <TextField layoutX="346.0" layoutY="406.0" />
-                        <Label layoutX="184.0" layoutY="379.0" text="Код">
+                        <TextField fx:id="statusName" layoutX="346.0" layoutY="406.0" />
+                        <Label layoutX="189.0" layoutY="378.0" text="Код">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="347.0" layoutY="378.0" text="Название">
+                        <Label layoutX="350.0" layoutY="378.0" text="Название статуса">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <Button layoutX="543.0" layoutY="527.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Очистить">
+                        <Button layoutX="543.0" layoutY="527.0" mnemonicParsing="false" onAction="#clearStatusText" prefHeight="31.0" prefWidth="100.0" text="Очистить">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="316.0" layoutY="527.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Добавить">
+                        <Button layoutX="316.0" layoutY="527.0" mnemonicParsing="false" onAction="#statusAdd" prefHeight="31.0" prefWidth="100.0" text="Добавить">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -72,81 +71,76 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="785.0">
                      <children>
-                        <TableView prefHeight="367.0" prefWidth="803.0">
+                        <TableView fx:id="storeTable" prefHeight="367.0" prefWidth="803.0">
                            <columns>
-                              <TableColumn prefWidth="75.0" text="ID" />
-                              <TableColumn prefWidth="75.0" text="ID типа" />
-                              <TableColumn prefWidth="75.0" text="ID статуса" />
-                              <TableColumn prefWidth="75.0" text="ID услуги" />
-                              <TableColumn prefWidth="112.0" text="URL" />
-                              <TableColumn prefWidth="105.0" text="Неймспейс" />
-                              <TableColumn prefWidth="95.0" text="Код документа" />
-                              <TableColumn prefWidth="99.0" text="Актуальная" />
+                              <TableColumn fx:id="storeIdCol" prefWidth="75.0" text="ID" />
+                              <TableColumn fx:id="storeTypeIdCol" prefWidth="75.0" text="ID типа" />
+                              <TableColumn fx:id="storeStatusIdCol" prefWidth="75.0" text="ID статуса" />
+                              <TableColumn fx:id="storeServiceIdCol" prefWidth="75.0" text="ID услуги" />
+                              <TableColumn fx:id="storeUrlCol" prefWidth="112.0" text="URL" />
+                              <TableColumn fx:id="storeNamespaceCol" prefWidth="105.0" text="Неймспейс" />
+                              <TableColumn fx:id="storeDocCodeCol" prefWidth="95.0" text="Код документа" />
+                              <TableColumn fx:id="storeActualCol" prefWidth="99.0" text="Актуальная" />
                            </columns>
                         </TableView>
-                        <TextField layoutX="551.0" layoutY="403.0" />
-                        <TextField layoutX="386.0" layoutY="403.0" />
-                        <Label layoutX="386.0" layoutY="378.0" prefHeight="25.0" prefWidth="82.0" text="ID статуса">
+                        <TextField fx:id="storeServiceId" layoutX="551.0" layoutY="403.0" />
+                        <TextField fx:id="storeStatusId" layoutX="386.0" layoutY="403.0" />
+                        <Label layoutX="394.0" layoutY="378.0" prefHeight="25.0" prefWidth="82.0" text="ID статуса">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="223.0" layoutY="403.0" />
-                        <Label layoutX="551.0" layoutY="378.0" text="ID услуги">
+                        <TextField fx:id="storeTypeId" layoutX="223.0" layoutY="403.0" />
+                        <Label layoutX="558.0" layoutY="378.0" text="ID услуги">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="223.0" layoutY="378.0" text="ID типа">
+                        <Label layoutX="233.0" layoutY="378.0" text="ID типа">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="60.0" layoutY="467.0" />
-                        <Label layoutX="60.0" layoutY="442.0" text="URL">
+                        <TextField fx:id="storeUrl" layoutX="60.0" layoutY="467.0" />
+                        <Label layoutX="69.0" layoutY="439.0" text="URL">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="223.0" layoutY="467.0" />
-                        <TextField layoutX="388.0" layoutY="467.0" />
-                        <CheckBox layoutX="558.0" layoutY="469.0" mnemonicParsing="false" text="Актуальная">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </CheckBox>
-                        <Button layoutX="168.0" layoutY="518.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Найти">
+                        <TextField fx:id="storeNamespace" layoutX="223.0" layoutY="467.0" />
+                        <TextField fx:id="storeDocCode" layoutX="388.0" layoutY="467.0" />
+                        <Button layoutX="168.0" layoutY="518.0" mnemonicParsing="false" onAction="#storeFind" prefHeight="31.0" prefWidth="100.0" text="Найти">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="406.0" layoutY="518.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Удалить">
+                        <Button layoutX="406.0" layoutY="518.0" mnemonicParsing="false" onAction="#storeDelete" prefHeight="31.0" prefWidth="100.0" text="Удалить">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="522.0" layoutY="518.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Очистить">
+                        <Button layoutX="522.0" layoutY="518.0" mnemonicParsing="false" onAction="#clearStoreText" prefHeight="31.0" prefWidth="100.0" text="Очистить">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="287.0" layoutY="518.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Добавить">
+                        <Button layoutX="287.0" layoutY="518.0" mnemonicParsing="false" onAction="#storeAdd" prefHeight="31.0" prefWidth="100.0" text="Добавить">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <TextField layoutX="60.0" layoutY="403.0" />
-                        <Label layoutX="60.0" layoutY="378.0" text="ID">
+                        <TextField fx:id="storeId" layoutX="60.0" layoutY="403.0" />
+                        <Label layoutX="67.0" layoutY="378.0" text="ID">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="223.0" layoutY="439.0" text="Неймспейс">
+                        <Label layoutX="233.0" layoutY="439.0" text="Неймспейс">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="387.0" layoutY="439.0" text="Код документа">
+                        <Label layoutX="394.0" layoutY="439.0" text="Код документа">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -159,32 +153,51 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="785.0">
                      <children>
-                        <TableView layoutY="7.0" prefHeight="367.0" prefWidth="803.0">
+                        <TableView fx:id="userTable" layoutY="7.0" prefHeight="367.0" prefWidth="803.0">
                            <columns>
-                              <TableColumn prefWidth="75.0" text="C1" />
-                              <TableColumn prefWidth="75.0" text="C2" />
+                              <TableColumn fx:id="userIdCol" prefWidth="75.0" text="ID" />
+                              <TableColumn fx:id="userLoginCol" prefWidth="131.0" text="Логин" />
+                              <TableColumn fx:id="userNameCol" prefWidth="221.0" text="Имя" />
                            </columns>
                         </TableView>
-                        <Button layoutX="165.0" layoutY="527.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Найти">
+                        <Button layoutX="165.0" layoutY="527.0" mnemonicParsing="false" onAction="#userFind" prefHeight="31.0" prefWidth="100.0" text="Найти">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="404.0" layoutY="527.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Удалить">
+                        <Button layoutX="404.0" layoutY="527.0" mnemonicParsing="false" onAction="#userDelete" prefHeight="31.0" prefWidth="100.0" text="Удалить">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="522.0" layoutY="527.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Очистить">
+                        <Button layoutX="522.0" layoutY="527.0" mnemonicParsing="false" onAction="#clearUserText" prefHeight="31.0" prefWidth="100.0" text="Очистить">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="284.0" layoutY="527.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Добавить">
+                        <Button layoutX="284.0" layoutY="527.0" mnemonicParsing="false" onAction="#userAdd" prefHeight="31.0" prefWidth="100.0" text="Добавить">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
+                        <TextField fx:id="userId" layoutX="21.0" layoutY="412.0" />
+                        <TextField fx:id="userLogin" layoutX="188.0" layoutY="412.0" />
+                        <Label layoutX="28.0" layoutY="387.0" prefWidth="20.0" text="ID">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="userName" layoutX="353.0" layoutY="411.0" prefHeight="25.0" prefWidth="289.0" />
+                        <Label layoutX="194.0" layoutY="387.0" text="Логин">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="356.0" layoutY="387.0" text="Имя">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </content>
@@ -222,18 +235,18 @@
                         </Button>
                         <TextField fx:id="typeId" layoutX="30.0" layoutY="405.0" />
                         <TextField fx:id="typeLabel" layoutX="197.0" layoutY="405.0" />
-                        <Label layoutX="31.0" layoutY="380.0" prefWidth="20.0" text="ID">
+                        <Label layoutX="37.0" layoutY="380.0" prefWidth="20.0" text="ID">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
                         <TextField fx:id="typeDesc" layoutX="362.0" layoutY="404.0" prefHeight="25.0" prefWidth="414.0" />
-                        <Label layoutX="200.0" layoutY="377.0" text="Название типа">
+                        <Label layoutX="203.0" layoutY="380.0" text="Название типа">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="363.0" layoutY="376.0" text="Описание">
+                        <Label layoutX="365.0" layoutY="380.0" text="Описание">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -246,40 +259,40 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="785.0">
                      <children>
-                        <TableView prefHeight="367.0" prefWidth="803.0" AnchorPane.bottomAnchor="204.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="serviceTable" prefHeight="367.0" prefWidth="803.0" AnchorPane.bottomAnchor="204.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <columns>
-                              <TableColumn prefWidth="117.0" text="ID" />
-                              <TableColumn prefWidth="126.0" text="Код услуги" />
+                              <TableColumn fx:id="serviceIdCol" prefWidth="117.0" text="ID" />
+                              <TableColumn fx:id="serviceCodeCol" prefWidth="126.0" text="Код услуги" />
                            </columns>
                         </TableView>
-                        <Button layoutX="173.0" layoutY="519.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Найти">
+                        <Button layoutX="173.0" layoutY="519.0" mnemonicParsing="false" onAction="#serviceFind" prefHeight="31.0" prefWidth="100.0" text="Найти">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="406.0" layoutY="519.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Удалить">
+                        <Button layoutX="406.0" layoutY="519.0" mnemonicParsing="false" onAction="#serviceDelete" prefHeight="31.0" prefWidth="100.0" text="Удалить">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="522.0" layoutY="519.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Очистить">
+                        <Button layoutX="522.0" layoutY="519.0" mnemonicParsing="false" onAction="#clearServiceText" prefHeight="31.0" prefWidth="100.0" text="Очистить">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="292.0" layoutY="519.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Добавить">
+                        <Button layoutX="292.0" layoutY="519.0" mnemonicParsing="false" onAction="#serviceAdd" prefHeight="31.0" prefWidth="100.0" text="Добавить">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <TextField layoutX="50.0" layoutY="405.0" />
-                        <TextField layoutX="217.0" layoutY="405.0" />
-                        <Label layoutX="51.0" layoutY="380.0" prefWidth="20.0" text="ID">
+                        <TextField fx:id="serviceId" layoutX="50.0" layoutY="405.0" />
+                        <TextField fx:id="serviceCode" layoutX="217.0" layoutY="405.0" />
+                        <Label layoutX="58.0" layoutY="377.0" prefWidth="20.0" text="ID">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="220.0" layoutY="377.0" text="Код услуги">
+                        <Label layoutX="225.0" layoutY="377.0" text="Код услуги">
                            <font>
                               <Font size="16.0" />
                            </font>

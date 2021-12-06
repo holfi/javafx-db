@@ -22,8 +22,8 @@ public class SimpleStore {
     public SimpleStore(Long id, Long typeId, Long serviceId, Long statusId, String url, String namespace, String docCode) {
         this.id = new SimpleLongProperty(id);
         this.typeId = new SimpleLongProperty(typeId);
-        this.serviceId = new SimpleLongProperty(serviceId);
-        this.statusId = new SimpleLongProperty(statusId);
+        this.serviceId = serviceId != null ? new SimpleLongProperty(serviceId) : null;
+        this.statusId = statusId != null ? new SimpleLongProperty(statusId) : null;
         this.url = new SimpleStringProperty(url);
         this.namespace = new SimpleStringProperty(namespace);
         this.docCode = new SimpleStringProperty(docCode);
@@ -83,5 +83,33 @@ public class SimpleStore {
 
     public SimpleStringProperty docCodeProperty() {
         return docCode;
+    }
+
+    public void setId(long id) {
+        this.id.set(id);
+    }
+
+    public void setTypeId(long typeId) {
+        this.typeId.set(typeId);
+    }
+
+    public void setServiceId(long serviceId) {
+        this.serviceId.set(serviceId);
+    }
+
+    public void setStatusId(long statusId) {
+        this.statusId.set(statusId);
+    }
+
+    public void setUrl(String url) {
+        this.url.set(url);
+    }
+
+    public void setNamespace(String namespace) {
+        this.namespace.set(namespace);
+    }
+
+    public void setDocCode(String docCode) {
+        this.docCode.set(docCode);
     }
 }

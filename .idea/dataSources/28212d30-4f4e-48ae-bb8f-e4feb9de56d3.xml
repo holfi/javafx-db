@@ -37,7 +37,7 @@
     <database id="9" parent="1" name="xsd_store">
       <ObjectId>42357</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2617</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2666</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|42358|42360|1
 sequence|table|42367|42369|1
@@ -94,7 +94,7 @@ sequence|table|42391|42393|1
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2618</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2667</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="22" parent="9" name="heap">
@@ -211,7 +211,7 @@ sequence|table|42391|42393|1
       <ObjectId>42393</ObjectId>
       <Comment>Хранилище XSD</Comment>
       <Owner>postgres</Owner>
-      <StateNumber>2591</StateNumber>
+      <StateNumber>2665</StateNumber>
     </table>
     <table id="41" parent="21" name="type">
       <ObjectId>42369</ObjectId>
@@ -322,79 +322,28 @@ sequence|table|42391|42393|1
       <StateNumber>2591</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="56" parent="40" name="xsd">
-      <Position>4</Position>
-      <Comment>Тело XSD</Comment>
-      <DataType>text|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>2591</StateNumber>
-      <TypeId>25</TypeId>
-    </column>
-    <column id="57" parent="40" name="url">
-      <Position>5</Position>
-      <Comment>URL загрузки XSD</Comment>
-      <DataType>text|0s</DataType>
-      <StateNumber>2591</StateNumber>
-      <TypeId>25</TypeId>
-    </column>
-    <column id="58" parent="40" name="version_xsd">
-      <Position>6</Position>
-      <Comment>Версия XSD документа</Comment>
-      <DataType>text|0s</DataType>
-      <StateNumber>2591</StateNumber>
-      <TypeId>25</TypeId>
-    </column>
-    <column id="59" parent="40" name="load_version">
-      <Position>7</Position>
-      <Comment>Служебная версия загруженной XSD</Comment>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>2591</StateNumber>
-      <TypeId>20</TypeId>
-    </column>
-    <column id="60" parent="40" name="namespace">
+    <column id="56" parent="40" name="namespace">
       <Position>8</Position>
       <Comment>Пространство имен XSD документа</Comment>
       <DataType>text|0s</DataType>
       <StateNumber>2591</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="61" parent="40" name="checksum">
-      <Position>9</Position>
-      <Comment>Хэш-сумма</Comment>
-      <DataType>text|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>2591</StateNumber>
-      <TypeId>25</TypeId>
-    </column>
-    <column id="62" parent="40" name="commiter">
-      <Position>10</Position>
-      <Comment>Коммитер</Comment>
-      <DataType>text|0s</DataType>
-      <StateNumber>2591</StateNumber>
-      <TypeId>25</TypeId>
-    </column>
-    <column id="63" parent="40" name="status_id">
+    <column id="57" parent="40" name="status_id">
       <Position>11</Position>
       <Comment>Код статуса</Comment>
       <DataType>bigint|0s</DataType>
       <StateNumber>2616</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="64" parent="40" name="doc_code">
+    <column id="58" parent="40" name="doc_code">
       <Position>12</Position>
       <Comment>Код документа</Comment>
       <DataType>text|0s</DataType>
       <StateNumber>2591</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="65" parent="40" name="isactual">
-      <Position>13</Position>
-      <DataType>boolean|0s</DataType>
-      <StateNumber>2591</StateNumber>
-      <TypeId>16</TypeId>
-    </column>
-    <column id="66" parent="40" name="created">
+    <column id="59" parent="40" name="created">
       <Position>14</Position>
       <Comment>Дата создания записи в базе данных</Comment>
       <DataType>timestamp|0s</DataType>
@@ -402,21 +351,27 @@ sequence|table|42391|42393|1
       <DefaultExpression>now()</DefaultExpression>
       <TypeId>1114</TypeId>
     </column>
-    <index id="67" parent="40" name="store_pkey">
+    <column id="60" parent="40" name="url">
+      <Position>15</Position>
+      <DataType>varchar|0s</DataType>
+      <StateNumber>2665</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="61" parent="40" name="store_pkey">
       <ObjectId>42401</ObjectId>
       <StateNumber>2591</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="68" parent="40" name="store_pkey">
+    <key id="62" parent="40" name="store_pkey">
       <ObjectId>42402</ObjectId>
       <StateNumber>2591</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>store_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="69" parent="40" name="store_type_id_fkey">
+    <foreign-key id="63" parent="40" name="store_type_id_fkey">
       <ObjectId>42403</ObjectId>
       <StateNumber>2591</StateNumber>
       <ColNames>type_id</ColNames>
@@ -426,7 +381,7 @@ sequence|table|42391|42393|1
       <RefKeyName>type_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="70" parent="40" name="store_service_id_fkey">
+    <foreign-key id="64" parent="40" name="store_service_id_fkey">
       <ObjectId>42408</ObjectId>
       <StateNumber>2591</StateNumber>
       <ColNames>service_id</ColNames>
@@ -436,7 +391,7 @@ sequence|table|42391|42393|1
       <RefKeyName>service_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="71" parent="40" name="store_status_code_fkey">
+    <foreign-key id="65" parent="40" name="store_status_code_fkey">
       <ObjectId>42413</ObjectId>
       <StateNumber>2591</StateNumber>
       <ColNames>status_id</ColNames>
@@ -446,7 +401,7 @@ sequence|table|42391|42393|1
       <RefKeyName>status_code_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="72" parent="41" name="id">
+    <column id="66" parent="41" name="id">
       <Position>1</Position>
       <Comment>ИД, первичный ключ</Comment>
       <DataType>bigint|0s</DataType>
@@ -455,21 +410,21 @@ sequence|table|42391|42393|1
       <DefaultExpression>nextval(&apos;type_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="73" parent="41" name="label">
+    <column id="67" parent="41" name="label">
       <Position>2</Position>
       <Comment>Название xsd</Comment>
       <DataType>text|0s</DataType>
       <StateNumber>2584</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="74" parent="41" name="description">
+    <column id="68" parent="41" name="description">
       <Position>3</Position>
       <Comment>Описание xsd</Comment>
       <DataType>text|0s</DataType>
       <StateNumber>2584</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="75" parent="41" name="created">
+    <column id="69" parent="41" name="created">
       <Position>4</Position>
       <Comment>Дата создания записи в базе данных</Comment>
       <DataType>timestamp|0s</DataType>
@@ -477,14 +432,14 @@ sequence|table|42391|42393|1
       <DefaultExpression>now()</DefaultExpression>
       <TypeId>1114</TypeId>
     </column>
-    <index id="76" parent="41" name="type_pkey">
+    <index id="70" parent="41" name="type_pkey">
       <ObjectId>42377</ObjectId>
       <StateNumber>2584</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="77" parent="41" name="type_pkey">
+    <key id="71" parent="41" name="type_pkey">
       <ObjectId>42378</ObjectId>
       <StateNumber>2584</StateNumber>
       <ColNames>id</ColNames>

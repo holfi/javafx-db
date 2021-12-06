@@ -30,4 +30,12 @@ public class SimpleService {
     public SimpleStringProperty serviceCodeProperty() {
         return serviceCode;
     }
+
+    public void setId(long id) {
+        this.id.set(id);
+    }
+
+    public void setServiceCode(String serviceCode) {
+        this.serviceCode.set(serviceCode);
+    }
 }

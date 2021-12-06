@@ -8,12 +8,12 @@ import javafx.fxml.FXML;
 public class SimpleStatusCode {
 
     @FXML SimpleLongProperty id;
-    @FXML SimpleIntegerProperty code;
+    @FXML SimpleLongProperty code;
     @FXML SimpleStringProperty name;
 
-    public SimpleStatusCode(Long id, int code, String name) {
+    public SimpleStatusCode(Long id, Long code, String name) {
         this.id = new SimpleLongProperty(id);
-        this.code = new SimpleIntegerProperty(code);
+        this.code = new SimpleLongProperty(code);
         this.name = new SimpleStringProperty(name);
     }
 
@@ -25,19 +25,35 @@ public class SimpleStatusCode {
         return id;
     }
 
-    public int getCode() {
-        return code.get();
-    }
-
-    public SimpleIntegerProperty codeProperty() {
-        return code;
-    }
-
     public String getName() {
         return name.get();
     }
 
     public SimpleStringProperty nameProperty() {
         return name;
+    }
+
+    public void setId(long id) {
+        this.id.set(id);
+    }
+
+    public void setCode(int code) {
+        this.code.set(code);
+    }
+
+    public void setName(String name) {
+        this.name.set(name);
+    }
+
+    public long getCode() {
+        return code.get();
+    }
+
+    public SimpleLongProperty codeProperty() {
+        return code;
+    }
+
+    public void setCode(long code) {
+        this.code.set(code);
     }
 }

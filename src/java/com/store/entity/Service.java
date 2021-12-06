@@ -28,4 +28,8 @@ public class Service {
         this.id = id;
         this.serviceCode = serviceCode;
     }
+
+    public Service(String serviceCode) {
+        this.serviceCode = serviceCode;
+    }
 }

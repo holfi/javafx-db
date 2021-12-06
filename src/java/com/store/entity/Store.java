@@ -48,4 +48,13 @@ public class Store {
         this.namespace = namespace;
         this.docCode = docCode;
     }
+
+    public Store(Long typeId, Long serviceId, Long statusId, String url, String namespace, String docCode) {
+        this.typeId = typeId;
+        this.serviceId = serviceId;
+        this.statusId = statusId;
+        this.url = url;
+        this.namespace = namespace;
+        this.docCode = docCode;
+    }
 }

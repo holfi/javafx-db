@@ -17,7 +17,7 @@ public class StatusCode {
     Long id;
 
     @Column(name = "code")
-    int code;
+    Long code;
 
     @Column(name = "name")
     String name;
@@ -25,8 +25,13 @@ public class StatusCode {
     public StatusCode() {
     }
 
-    public StatusCode(Long id, int code, String name) {
+    public StatusCode(Long id, Long code, String name) {
         this.id = id;
+        this.code = code;
+        this.name = name;
+    }
+
+    public StatusCode(Long code, String name) {
         this.code = code;
         this.name = name;
     }

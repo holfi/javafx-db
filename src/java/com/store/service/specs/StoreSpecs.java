@@ -14,13 +14,13 @@ import java.util.ArrayList;
 @Component
 public class StoreSpecs {
 
-    public Specification<Type> findByPredicates(Store store) {
+    public Specification<Store> findByPredicates(Store store) {
         return (root, query, cb) -> query
                 .where(cb.and(getPredicates(store, cb, root).toArray(new Predicate[] {})))
                 .getRestriction();
     }
 
-    public ArrayList<Predicate> getPredicates(Store store, CriteriaBuilder cb, Root<Type> root) {
+    public ArrayList<Predicate> getPredicates(Store store, CriteriaBuilder cb, Root<Store> root) {
         ArrayList<Predicate> predicates = new ArrayList<>(7);
 
         if (store.getId() != null && !store.getId().toString().equals(""))
