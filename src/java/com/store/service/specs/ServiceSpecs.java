@@ -19,13 +19,16 @@ public class ServiceSpecs {
     }
 
     public ArrayList<Predicate> getPredicates(Service service, CriteriaBuilder cb, Root<Service> root) {
-        ArrayList<Predicate> predicates = new ArrayList<>(2);
+        ArrayList<Predicate> predicates = new ArrayList<>(3);
 
         if (service.getId() != null && !service.getId().toString().equals(""))
             predicates.add(cb.equal(root.get("id"), service.getId()));
 
         if (!service.getServiceCode().equals(""))
             predicates.add(cb.like(root.get("serviceCode"), "%" + service.getServiceCode() + "%"));
+
+        if (!service.getAuthor().equals(""))
+            predicates.add(cb.like(root.get("author"), "%" + service.getAuthor() + "%"));
 
         return predicates;
     }

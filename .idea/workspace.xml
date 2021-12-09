@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -27,40 +30,69 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a25a9387-484f-4eb7-ab40-56118e635ca7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/28212d30-4f4e-48ae-bb8f-e4feb9de56d3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/28212d30-4f4e-48ae-bb8f-e4feb9de56d3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/28212d30-4f4e-48ae-bb8f-e4feb9de56d3/storage_v2/_src_/database/xsd_store.67HRfA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/28212d30-4f4e-48ae-bb8f-e4feb9de56d3/storage_v2/_src_/database/xsd_store.67HRfA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/28212d30-4f4e-48ae-bb8f-e4feb9de56d3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/28212d30-4f4e-48ae-bb8f-e4feb9de56d3/storage_v2/_src_/database/xsd_store.67HRfA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/28212d30-4f4e-48ae-bb8f-e4feb9de56d3/storage_v2/_src_/database/xsd_store.67HRfA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/28212d30-4f4e-48ae-bb8f-e4feb9de56d3/storage_v2/_src_/database/xsd_store.67HRfA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/28212d30-4f4e-48ae-bb8f-e4feb9de56d3/storage_v2/_src_/database/xsd_store.67HRfA/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFX DB.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFX DB.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/com/store/DbController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/store/DbController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/store/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/store/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/com/store/entity/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/store/entity/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/com/store/entity/StatusCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/store/entity/StatusCode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/com/store/entity/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/store/entity/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/store/entity/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/store/entity/Type.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/com/store/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/store/entity/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/com/store/entity/simple_entity/SimpleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/store/entity/simple_entity/SimpleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/com/store/entity/simple_entity/SimpleStatusCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/store/entity/simple_entity/SimpleStatusCode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/com/store/entity/simple_entity/SimpleStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/store/entity/simple_entity/SimpleStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/store/entity/simple_entity/SimpleUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/store/entity/simple_entity/SimpleUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/store/repository/ServiceRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/store/repository/ServiceRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/store/repository/StatusRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/store/repository/StatusRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/store/repository/StoreRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/store/repository/StoreRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/store/repository/TypeRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/store/repository/TypeRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/store/entity/simple_entity/SimpleType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/store/entity/simple_entity/SimpleType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/com/store/repository/UserRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/store/repository/UserRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/com/store/service/ConvertService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/store/service/ConvertService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/com/store/service/DbService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/store/service/DbService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/com/store/service/specs/ServiceSpecs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/store/service/specs/ServiceSpecs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/com/store/service/specs/StatusSpecs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/store/service/specs/StatusSpecs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/com/store/service/specs/StoreSpecs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/store/service/specs/StoreSpecs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/store/sql/DataBase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/store/service/specs/TypeSpecs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/store/service/specs/TypeSpecs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/com/store/db.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/com/store/db.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/store/DbController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/DbController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/JavaFxApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/JavaFxApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/SpringBootStore.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/SpringBootStore.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/store/db.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/db.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/store/entity/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/entity/Service.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/store/entity/StatusCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/entity/StatusCode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/entity/Store.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/entity/Store.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/entity/Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/entity/Type.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/store/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/entity/simple_entity/SimpleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/entity/simple_entity/SimpleService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/entity/simple_entity/SimpleStatusCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/entity/simple_entity/SimpleStatusCode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/entity/simple_entity/SimpleStore.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/entity/simple_entity/SimpleStore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/entity/simple_entity/SimpleType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/entity/simple_entity/SimpleType.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/store/entity/simple_entity/SimpleUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/entity/simple_entity/SimpleUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/repository/ServiceRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/repository/ServiceRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/repository/StatusRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/repository/StatusRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/repository/StoreRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/repository/StoreRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/repository/TypeRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/repository/TypeRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/repository/UserRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/repository/UserRepo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/ConvertService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/ConvertService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/DbService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/DbService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/TypeSpecs.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/store/sql/DataBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/specs/ServiceSpecs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/specs/ServiceSpecs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/specs/StatusSpecs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/specs/StatusSpecs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/specs/StoreSpecs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/specs/StoreSpecs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/specs/TypeSpecs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/specs/TypeSpecs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/specs/UserSpecs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/specs/UserSpecs.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +110,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="JPA Inspector" value="true" />
+        <entry key="JPA Palette" value="true" />
+        <entry key="JPA Structure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="JPA Inspector" value="false" />
+        <entry key="JPA Palette" value="false" />
+        <entry key="JPA Structure" value="false" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectId" id="21sJGn0xxbmzNEl1TEcjrsQoBT2" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -94,9 +142,10 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/java/store/entity" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resources" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -106,40 +155,43 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="store" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\javafx-db\src\resources" />
       <recent name="A:\JProjects\sample-spring-boot-javafx\src\java\store\entity" />
       <recent name="A:\JProjects\sample-spring-boot-javafx\src\main\java\ru\habrahabr" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\javafx-db" />
+      <recent name="A:\JProjects\sample-spring-boot-javafx\src\resources" />
+      <recent name="A:\JProjects\sample-spring-boot-javafx\src\java" />
+      <recent name="A:\JProjects\sample-spring-boot-javafx\src\resources\fxml" />
+      <recent name="A:\JProjects\sample-spring-boot-javafx\src" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="store" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.store.entity.simple_entity" />
       <recent name="store.sql" />
       <recent name="store.controller" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="A:\JProjects\sample-spring-boot-javafx\src\resources" />
-      <recent name="A:\JProjects\sample-spring-boot-javafx\src\java" />
-      <recent name="A:\JProjects\sample-spring-boot-javafx\src\resources\fxml" />
-      <recent name="A:\JProjects\sample-spring-boot-javafx\src" />
-    </key>
   </component>
   <component name="RunManager">
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="JavaFX DB" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.store.SpringBootStore" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;A:\Java\javafx-sdk-15\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;D:\javafx-sdk-15\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -157,11 +209,16 @@
       <workItem from="1638801145163" duration="5268000" />
       <workItem from="1638813172114" duration="55000" />
       <workItem from="1638819071663" duration="6777000" />
+      <workItem from="1638859134955" duration="1683000" />
+      <workItem from="1638860849089" duration="2894000" />
+      <workItem from="1638867898009" duration="3488000" />
+      <workItem from="1638948627917" duration="26000" />
+      <workItem from="1639046608897" duration="6396000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -186,87 +243,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="859" y="411" key="#Assign_Data_Sources" timestamp="1638778073149">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="859" y="411" key="#Assign_Data_Sources/0.0.1920.1040@0.0.1920.1040" timestamp="1638778073149" />
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1638780681121">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1638780681121" />
-    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1638821059903">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1638821059903" />
-    <state x="743" y="414" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1638780527396">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="743" y="414" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1638780527396" />
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1638780882304">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1638780882304" />
-    <state x="690" y="267" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1638793741081">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1638793741081" />
-    <state x="666" y="261" key="FileChooserDialogImpl" timestamp="1638723842713">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="666" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1638723842713" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1638825807567">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1638825807567" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1638825807567">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1638825807567" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1638825807566">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1638825807566" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1638825807567">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1638825807567" />
-    <state width="1877" height="282" key="GridCell.Tab.1.bottom" timestamp="1638825807567">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1638825807567" />
-    <state width="1877" height="282" key="GridCell.Tab.1.center" timestamp="1638825807567">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1638825807567" />
-    <state width="1877" height="282" key="GridCell.Tab.1.left" timestamp="1638825807567">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1638825807567" />
-    <state width="1877" height="282" key="GridCell.Tab.1.right" timestamp="1638825807567">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1638825807567" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1638723882802">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1638723882802" />
-    <state x="756" y="340" width="408" height="355" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1638790713921">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="756" y="340" width="408" height="355" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1638790713921" />
-    <state x="689" y="230" width="686" height="661" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1638822098480">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="689" y="230" width="686" height="661" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1638822098480" />
-    <state x="566" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1638820279303">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="566" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1638820279303" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1638809476385">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1638809476385" />
   </component>
 </project>

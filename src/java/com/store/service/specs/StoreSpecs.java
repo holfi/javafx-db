@@ -21,7 +21,7 @@ public class StoreSpecs {
     }
 
     public ArrayList<Predicate> getPredicates(Store store, CriteriaBuilder cb, Root<Store> root) {
-        ArrayList<Predicate> predicates = new ArrayList<>(7);
+        ArrayList<Predicate> predicates = new ArrayList<>(8);
 
         if (store.getId() != null && !store.getId().toString().equals(""))
             predicates.add(cb.equal(root.get("id"), store.getId()));
@@ -43,6 +43,9 @@ public class StoreSpecs {
 
         if (!store.getUrl().equals(""))
             predicates.add(cb.like(root.get("url"), "%" + store.getUrl() + "%"));
+
+        if (!store.getAuthor().equals(""))
+            predicates.add(cb.like(root.get("author"), "%" + store.getAuthor() + "%"));
 
         return predicates;
     }

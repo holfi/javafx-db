@@ -1,6 +1,7 @@
 package com.store.entity;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @ToString
+@NoArgsConstructor
 public class User {
 
     @Id
@@ -24,13 +26,29 @@ public class User {
     @Column(name = "name")
     String name;
 
-    public User(Long id, String login, String name) {
+    @Column(name = "password")
+    String password;
+
+    public User(Long id, String login, String name, String password) {
         this.id = id;
+        this.login = login;
+        this.name = name;
+        this.password = password;
+    }
+
+    public User(String login, String name, String password) {
+        this.login = login;
+        this.name = name;
+        this.password = password;
+    }
+
+    public User(String login, String name) {
         this.login = login;
         this.name = name;
     }
 
-    public User(String login, String name) {
+    public User(Long id, String login, String name) {
+        this.id = id;
         this.login = login;
         this.name = name;
     }

@@ -9,10 +9,12 @@ public class SimpleService {
 
     @FXML SimpleLongProperty id;
     @FXML SimpleStringProperty serviceCode;
+    @FXML SimpleStringProperty author;
 
-    public SimpleService(Long id, String serviceCode) {
+    public SimpleService(Long id, String serviceCode, String author) {
         this.id = new SimpleLongProperty(id);
         this.serviceCode = new SimpleStringProperty(serviceCode);
+        this.author = new SimpleStringProperty(author);
     }
 
     public long getId() {
@@ -37,5 +39,17 @@ public class SimpleService {
 
     public void setServiceCode(String serviceCode) {
         this.serviceCode.set(serviceCode);
+    }
+
+    public String getAuthor() {
+        return author.get();
+    }
+
+    public SimpleStringProperty authorProperty() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author.set(author);
     }
 }

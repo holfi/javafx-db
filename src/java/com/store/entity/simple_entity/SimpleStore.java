@@ -18,8 +18,10 @@ public class SimpleStore {
     @FXML SimpleStringProperty url;
     @FXML SimpleStringProperty namespace;
     @FXML SimpleStringProperty docCode;
+    @FXML SimpleStringProperty author;
 
-    public SimpleStore(Long id, Long typeId, Long serviceId, Long statusId, String url, String namespace, String docCode) {
+
+    public SimpleStore(Long id, Long typeId, Long serviceId, Long statusId, String url, String namespace, String docCode, String author) {
         this.id = new SimpleLongProperty(id);
         this.typeId = new SimpleLongProperty(typeId);
         this.serviceId = serviceId != null ? new SimpleLongProperty(serviceId) : null;
@@ -27,6 +29,7 @@ public class SimpleStore {
         this.url = new SimpleStringProperty(url);
         this.namespace = new SimpleStringProperty(namespace);
         this.docCode = new SimpleStringProperty(docCode);
+        this.author = new SimpleStringProperty(author);
     }
 
     public long getId() {
@@ -111,5 +114,17 @@ public class SimpleStore {
 
     public void setDocCode(String docCode) {
         this.docCode.set(docCode);
+    }
+
+    public String getAuthor() {
+        return author.get();
+    }
+
+    public SimpleStringProperty authorProperty() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author.set(author);
     }
 }

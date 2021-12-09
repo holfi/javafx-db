@@ -23,17 +23,22 @@ public class Type {
     @Column(name = "description")
     String description;
 
+    @Column(name = "author")
+    String author;
+
     public Type() {
     }
 
-    public Type(String label, String description) {
+    public Type(String label, String description, String author) {
         this.label = label;
         this.description = description;
+        this.author = author;
     }
 
-    public Type(Long id, String label, String description) {
+    public Type(Long id, String label, String description, String author) {
         this.id = id;
         this.label = label;
         this.description = description;
+        this.author = author;
     }
 }

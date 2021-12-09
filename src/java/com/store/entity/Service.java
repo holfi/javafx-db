@@ -21,15 +21,20 @@ public class Service {
     @Column(name = "service_code")
     String serviceCode;
 
+    @Column(name = "author")
+    String author;
+
     public Service() {
     }
 
-    public Service(Long id, String serviceCode) {
+    public Service(Long id, String serviceCode, String author) {
         this.id = id;
         this.serviceCode = serviceCode;
+        this.author = author;
     }
 
-    public Service(String serviceCode) {
+    public Service(String serviceCode, String author) {
         this.serviceCode = serviceCode;
+        this.author = author;
     }
 }

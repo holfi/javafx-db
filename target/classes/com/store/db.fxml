@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -18,11 +19,11 @@
                <content>
               <AnchorPane prefHeight="571.0" prefWidth="751.0">
                      <children>
-                        <TableView fx:id="statusTable" prefHeight="367.0" prefWidth="803.0">
+                        <TableView fx:id="statusTable" onKeyPressed="#statusDelete" prefHeight="367.0" prefWidth="803.0">
                            <columns>
-                              <TableColumn fx:id="statusIdCol" prefWidth="75.0" text="ID" />
                               <TableColumn fx:id="statusCodeCol" prefWidth="75.0" text="Код" />
                               <TableColumn fx:id="statusNameCol" prefWidth="75.0" text="Название" />
+                              <TableColumn fx:id="statusAuthorCol" prefWidth="75.0" text="Автор" />
                            </columns>
                         </TableView>
                         <TextField fx:id="statusId" layoutX="14.0" layoutY="407.0" />
@@ -37,12 +38,7 @@
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <Button layoutX="431.0" layoutY="527.0" mnemonicParsing="false" onAction="#statusDelete" prefHeight="31.0" prefWidth="100.0" text="Удалить">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                        <TextField fx:id="statusName" layoutX="346.0" layoutY="406.0" />
+                        <TextField fx:id="statusName" layoutX="346.0" layoutY="407.0" />
                         <Label layoutX="189.0" layoutY="378.0" text="Код">
                            <font>
                               <Font size="16.0" />
@@ -53,7 +49,7 @@
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <Button layoutX="543.0" layoutY="527.0" mnemonicParsing="false" onAction="#clearStatusText" prefHeight="31.0" prefWidth="100.0" text="Очистить">
+                        <Button layoutX="433.0" layoutY="527.0" mnemonicParsing="false" onAction="#clearStatusText" prefHeight="31.0" prefWidth="100.0" text="Очистить">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -63,6 +59,12 @@
                               <Font size="15.0" />
                            </font>
                         </Button>
+                        <TextField fx:id="statusAuthor" layoutX="507.0" layoutY="406.0" />
+                        <Label layoutX="511.0" layoutY="377.0" text="Автор">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </content>
@@ -73,14 +75,13 @@
                      <children>
                         <TableView fx:id="storeTable" prefHeight="367.0" prefWidth="803.0">
                            <columns>
-                              <TableColumn fx:id="storeIdCol" prefWidth="75.0" text="ID" />
                               <TableColumn fx:id="storeTypeIdCol" prefWidth="75.0" text="ID типа" />
                               <TableColumn fx:id="storeStatusIdCol" prefWidth="75.0" text="ID статуса" />
                               <TableColumn fx:id="storeServiceIdCol" prefWidth="75.0" text="ID услуги" />
                               <TableColumn fx:id="storeUrlCol" prefWidth="112.0" text="URL" />
                               <TableColumn fx:id="storeNamespaceCol" prefWidth="105.0" text="Неймспейс" />
                               <TableColumn fx:id="storeDocCodeCol" prefWidth="95.0" text="Код документа" />
-                              <TableColumn fx:id="storeActualCol" prefWidth="99.0" text="Актуальная" />
+                              <TableColumn fx:id="storeAuthorCol" prefWidth="99.0" text="Автор" />
                            </columns>
                         </TableView>
                         <TextField fx:id="storeServiceId" layoutX="551.0" layoutY="403.0" />
@@ -114,12 +115,7 @@
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="406.0" layoutY="518.0" mnemonicParsing="false" onAction="#storeDelete" prefHeight="31.0" prefWidth="100.0" text="Удалить">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="522.0" layoutY="518.0" mnemonicParsing="false" onAction="#clearStoreText" prefHeight="31.0" prefWidth="100.0" text="Очистить">
+                        <Button layoutX="399.0" layoutY="518.0" mnemonicParsing="false" onAction="#clearStoreText" prefHeight="31.0" prefWidth="100.0" text="Очистить">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -145,6 +141,12 @@
                               <Font size="16.0" />
                            </font>
                         </Label>
+                        <TextField fx:id="storeAuthor" layoutX="551.0" layoutY="467.0" />
+                        <Label layoutX="558.0" layoutY="439.0" text="Автор">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </content>
@@ -155,7 +157,6 @@
                      <children>
                         <TableView fx:id="userTable" layoutY="7.0" prefHeight="367.0" prefWidth="803.0">
                            <columns>
-                              <TableColumn fx:id="userIdCol" prefWidth="75.0" text="ID" />
                               <TableColumn fx:id="userLoginCol" prefWidth="131.0" text="Логин" />
                               <TableColumn fx:id="userNameCol" prefWidth="221.0" text="Имя" />
                            </columns>
@@ -165,12 +166,7 @@
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="404.0" layoutY="527.0" mnemonicParsing="false" onAction="#userDelete" prefHeight="31.0" prefWidth="100.0" text="Удалить">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="522.0" layoutY="527.0" mnemonicParsing="false" onAction="#clearUserText" prefHeight="31.0" prefWidth="100.0" text="Очистить">
+                        <Button layoutX="402.0" layoutY="527.0" mnemonicParsing="false" onAction="#clearUserText" prefHeight="31.0" prefWidth="100.0" text="Очистить">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -198,6 +194,12 @@
                               <Font size="16.0" />
                            </font>
                         </Label>
+                        <TextField fx:id="userPassword" layoutX="21.0" layoutY="480.0" />
+                        <Label layoutX="25.0" layoutY="452.0" text="Пароль">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </content>
@@ -208,9 +210,9 @@
                      <children>
                         <TableView fx:id="typeTable" prefHeight="367.0" prefWidth="803.0" AnchorPane.bottomAnchor="204.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
-                            <TableColumn fx:id="typeIdCol" prefWidth="75.0" text="ID" />
                             <TableColumn fx:id="typeLabelCol" prefWidth="143.0" text="Название типа" />
-                              <TableColumn fx:id="typeDescCol" minWidth="7.0" prefWidth="450.0" text="Описание" />
+                              <TableColumn fx:id="typeDescCol" minWidth="7.0" prefWidth="217.60003662109375" text="Описание" />
+                              <TableColumn fx:id="typeAuthorCol" minWidth="0.0" prefWidth="160.79995727539062" text="Автор" />
                           </columns>
                         </TableView>
                         <Button fx:id="typeFind" layoutX="173.0" layoutY="519.0" mnemonicParsing="false" onAction="#typeFind" prefHeight="31.0" prefWidth="100.0" text="Найти">
@@ -218,12 +220,7 @@
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="410.0" layoutY="519.0" mnemonicParsing="false" onAction="#typeDelete" prefHeight="31.0" prefWidth="100.0" text="Удалить">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="528.0" layoutY="519.0" mnemonicParsing="false" onAction="#typeClear" prefHeight="31.0" prefWidth="100.0" text="Очистить">
+                        <Button layoutX="411.0" layoutY="519.0" mnemonicParsing="false" onAction="#typeClear" prefHeight="31.0" prefWidth="100.0" text="Очистить">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -251,6 +248,12 @@
                               <Font size="16.0" />
                            </font>
                         </Label>
+                        <TextField fx:id="typeAuthor" layoutX="30.0" layoutY="466.0" />
+                        <Label layoutX="34.0" layoutY="438.0" text="Автор">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
             </content>
@@ -261,8 +264,8 @@
                      <children>
                         <TableView fx:id="serviceTable" prefHeight="367.0" prefWidth="803.0" AnchorPane.bottomAnchor="204.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <columns>
-                              <TableColumn fx:id="serviceIdCol" prefWidth="117.0" text="ID" />
                               <TableColumn fx:id="serviceCodeCol" prefWidth="126.0" text="Код услуги" />
+                              <TableColumn fx:id="serviceAuthorCol" prefWidth="126.0" text="Автор" />
                            </columns>
                         </TableView>
                         <Button layoutX="173.0" layoutY="519.0" mnemonicParsing="false" onAction="#serviceFind" prefHeight="31.0" prefWidth="100.0" text="Найти">
@@ -270,12 +273,7 @@
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="406.0" layoutY="519.0" mnemonicParsing="false" onAction="#serviceDelete" prefHeight="31.0" prefWidth="100.0" text="Удалить">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="522.0" layoutY="519.0" mnemonicParsing="false" onAction="#clearServiceText" prefHeight="31.0" prefWidth="100.0" text="Очистить">
+                        <Button layoutX="406.0" layoutY="519.0" mnemonicParsing="false" onAction="#clearServiceText" prefHeight="31.0" prefWidth="100.0" text="Очистить">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -297,6 +295,53 @@
                               <Font size="16.0" />
                            </font>
                         </Label>
+                        <TextField fx:id="serviceAuthor" layoutX="381.0" layoutY="404.0" />
+                        <Label layoutX="385.0" layoutY="376.0" text="Автор">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Отчет">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="785.0">
+                     <children>
+                        <Button layoutX="420.0" layoutY="103.0" mnemonicParsing="false" onAction="#getReport" prefHeight="0.0" prefWidth="178.0" text="Сформировать отчет">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="29.0" layoutY="80.0" text="Дата с">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="235.0" layoutY="80.0" text="Дата по">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="dateFrom" layoutX="21.0" layoutY="106.0" />
+                        <DatePicker fx:id="dateTo" layoutX="221.0" layoutY="106.0" />
+                        <Label layoutX="21.0" layoutY="14.0" text="Выберите период для отчета">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="repTable" layoutX="3.0" layoutY="161.0" prefHeight="410.0" prefWidth="803.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="161.0">
+                          <columns>
+                            <TableColumn fx:id="repUrl" prefWidth="75.0" text="URL" />
+                            <TableColumn fx:id="repNamespace" prefWidth="75.0" text="Неймспейс" />
+                              <TableColumn fx:id="repAuthor" prefWidth="75.0" text="Автор" />
+                              <TableColumn fx:id="repType" prefWidth="75.0" text="Кол. типов" />
+                              <TableColumn fx:id="repService" prefWidth="75.0" text="Кол. услуг" />
+                              <TableColumn fx:id="repStatus" prefWidth="124.0" text="Кол. статусов" />
+                              <TableColumn fx:id="repDocCode" prefWidth="146.39999389648438" text="Кол. кодов документа" />
+                          </columns>
+                        </TableView>
                      </children>
                   </AnchorPane>
                </content>

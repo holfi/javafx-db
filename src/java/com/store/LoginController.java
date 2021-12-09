@@ -1,5 +1,7 @@
 package com.store;
 
+import com.store.entity.User;
+import com.store.repository.UserRepo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -10,16 +12,27 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import lombok.RequiredArgsConstructor;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 @FxmlView("login.fxml")
+@RequiredArgsConstructor
 public class LoginController {
 
-    private final String login = "1";
-    private final String password = "1";
+    private String login = "1";
+    private String password = "1";
+
+    public static Stage dbStage;
+    public static Scene dbScene;
+
+    @Autowired
+    private final UserRepo userRepo;
+
+    public static String userLogin;
 
     @FXML TextField textLogin;
     @FXML PasswordField passwordLogin;
@@ -35,12 +48,18 @@ public class LoginController {
     }
 
     public void loginHandle(ActionEvent event) {
-        if (!textLogin.getText().equals(login) || !passwordLogin.getText().equals(password)) {
+        User user = userRepo.findByLogin(textLogin.getText());
+        if (user == null)
+            new Alert(Alert.AlertType.NONE, "Пользователь с таким логином не существует", new ButtonType("Закрыть")).showAndWait();
+        if (!textLogin.getText().equals(user.getLogin()) || !passwordLogin.getText().equals(user.getPassword())) {
             new Alert(Alert.AlertType.NONE, "Неправильный логин или пароль", new ButtonType("Закрыть")).showAndWait();
             return;
         }
 
+        userLogin = user.getName() == null ? textLogin.getText() : user.getName();
+
         Stage stage = new Stage();
+        dbStage = stage;
         stage.setTitle("XSD Store");
 
         FxWeaver fxWeaver = JavaFxApplication.applicationContext.getBean(FxWeaver.class);

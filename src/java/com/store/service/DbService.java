@@ -47,16 +47,24 @@ public class DbService {
 
 
     // saveOrUpdate
-    public void saveOrUpdate(Type type) { typeRepo.save(type); }
-    public void saveOrUpdate(Service service) { serviceRepo.save(service); }
+    public void saveOrUpdate(Type type) {
+        typeRepo.saveAndFlush(type);
+        typeRepo.save(type);
+    }
+    public void saveOrUpdate(Service service) {
+        serviceRepo.saveAndFlush(service);
+        serviceRepo.save(service);
+    }
 
-    @Transactional
     public void saveOrUpdate(Store store) {
         storeRepo.saveAndFlush(store);
         storeRepo.save(store);
     }
     public void saveOrUpdate(User user) { userRepo.save(user); }
-    public void saveOrUpdate(StatusCode statusCode) { statusRepo.save(statusCode); }
+    public void saveOrUpdate(StatusCode statusCode) {
+        statusRepo.save(statusCode);
+        statusRepo.saveAndFlush(statusCode);
+    }
 
 
     // delete

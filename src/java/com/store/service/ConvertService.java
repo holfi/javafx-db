@@ -14,7 +14,7 @@ public class ConvertService {
         ObservableList<SimpleType> oList = FXCollections.observableArrayList();
 
         for (Type t : list) {
-            oList.add(new SimpleType(t.getId(), t.getLabel(), t.getDescription()));
+            oList.add(new SimpleType(t.getId(), t.getLabel(), t.getDescription(), t.getAuthor()));
         }
 
         return oList;
@@ -24,7 +24,7 @@ public class ConvertService {
         ObservableList<SimpleService> oList = FXCollections.observableArrayList();
 
         for (Service s : list) {
-            oList.add(new SimpleService(s.getId(), s.getServiceCode()));
+            oList.add(new SimpleService(s.getId(), s.getServiceCode(), s.getAuthor()));
         }
 
         return oList;
@@ -34,7 +34,7 @@ public class ConvertService {
         ObservableList<SimpleStore> oList = FXCollections.observableArrayList();
 
         for (Store s : list) {
-            oList.add(new SimpleStore(s.getId(), s.getTypeId(), s.getServiceId(), s.getStatusId(), s.getUrl(), s.getNamespace(), s.getDocCode()));
+            oList.add(new SimpleStore(s.getId(), s.getTypeId(), s.getServiceId(), s.getStatusId(), s.getUrl(), s.getNamespace(), s.getDocCode(), s.getAuthor()));
         }
 
         return oList;
@@ -54,11 +54,21 @@ public class ConvertService {
         ObservableList<SimpleStatusCode> oList = FXCollections.observableArrayList();
 
         for (StatusCode s : list) {
-            oList.add(new SimpleStatusCode(s.getId(), s.getCode(), s.getName()));
+            oList.add(new SimpleStatusCode(s.getId(), s.getCode(), s.getName(), s.getAuthor()));
         }
 
         return oList;
     }
 
+    public ObservableList<SimpleReport> convertReport(List<Report> list) {
+        ObservableList<SimpleReport> oList = FXCollections.observableArrayList();
+
+        for (Report r : list) {
+            oList.add(new SimpleReport(r.getRepUrl(), r.getRepNamespace(), r.getRepAuthor(),
+                    r.getRepType(), r.getRepService(), r.getRepStatus(), r.getRepDocCode()));
+        }
+
+        return oList;
+    }
 
 }

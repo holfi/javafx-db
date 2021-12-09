@@ -19,7 +19,7 @@ public class StatusSpecs {
     }
 
     public ArrayList<Predicate> getPredicates(StatusCode status, CriteriaBuilder cb, Root<StatusCode> root) {
-        ArrayList<Predicate> predicates = new ArrayList<>(3);
+        ArrayList<Predicate> predicates = new ArrayList<>(4);
 
         if (status.getId() != null && !status.getId().toString().equals(""))
             predicates.add(cb.equal(root.get("id"), status.getId()));
@@ -29,6 +29,9 @@ public class StatusSpecs {
 
         if (!status.getName().equals(""))
             predicates.add(cb.like(root.get("name"), "%" + status.getName() + "%"));
+
+        if (!status.getAuthor().equals(""))
+            predicates.add(cb.like(root.get("author"), "%" + status.getAuthor() + "%"));
 
         return predicates;
     }

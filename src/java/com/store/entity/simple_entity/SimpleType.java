@@ -10,11 +10,13 @@ public class SimpleType {
     @FXML SimpleLongProperty id;
     @FXML SimpleStringProperty label;
     @FXML SimpleStringProperty description;
+    @FXML SimpleStringProperty author;
 
-    public SimpleType(long id, String label, String description) {
+    public SimpleType(long id, String label, String description, String author) {
         this.id = new SimpleLongProperty(id);
         this.label = new SimpleStringProperty(label);
         this.description = new SimpleStringProperty(description);
+        this.author = new SimpleStringProperty(author);
     }
 
     public long getId() {
@@ -51,5 +53,17 @@ public class SimpleType {
 
     public void setDescription(String description) {
         this.description.set(description);
+    }
+
+    public String getAuthor() {
+        return author.get();
+    }
+
+    public SimpleStringProperty authorProperty() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author.set(author);
     }
 }

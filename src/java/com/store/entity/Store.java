@@ -36,10 +36,13 @@ public class Store {
     @Column(name = "doc_code")
     String docCode;
 
+    @Column(name = "author")
+    String author;
+
     public Store() {
     }
 
-    public Store(Long id, Long typeId, Long serviceId, Long statusId, String url, String namespace, String docCode) {
+    public Store(Long id, Long typeId, Long serviceId, Long statusId, String url, String namespace, String docCode, String author) {
         this.id = id;
         this.typeId = typeId;
         this.serviceId = serviceId;
@@ -47,14 +50,16 @@ public class Store {
         this.url = url;
         this.namespace = namespace;
         this.docCode = docCode;
+        this.author = author;
     }
 
-    public Store(Long typeId, Long serviceId, Long statusId, String url, String namespace, String docCode) {
+    public Store(Long typeId, Long serviceId, Long statusId, String url, String namespace, String docCode, String author) {
         this.typeId = typeId;
         this.serviceId = serviceId;
         this.statusId = statusId;
         this.url = url;
         this.namespace = namespace;
         this.docCode = docCode;
+        this.author = author;
     }
 }

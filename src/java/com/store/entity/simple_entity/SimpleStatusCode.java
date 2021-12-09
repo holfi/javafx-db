@@ -10,11 +10,13 @@ public class SimpleStatusCode {
     @FXML SimpleLongProperty id;
     @FXML SimpleLongProperty code;
     @FXML SimpleStringProperty name;
+    @FXML SimpleStringProperty author;
 
-    public SimpleStatusCode(Long id, Long code, String name) {
+    public SimpleStatusCode(Long id, Long code, String name, String author) {
         this.id = new SimpleLongProperty(id);
         this.code = new SimpleLongProperty(code);
         this.name = new SimpleStringProperty(name);
+        this.author = new SimpleStringProperty(author);
     }
 
     public long getId() {
@@ -55,5 +57,17 @@ public class SimpleStatusCode {
 
     public void setCode(long code) {
         this.code.set(code);
+    }
+
+    public String getAuthor() {
+        return author.get();
+    }
+
+    public SimpleStringProperty authorProperty() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author.set(author);
     }
 }

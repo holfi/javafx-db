@@ -22,17 +22,22 @@ public class StatusCode {
     @Column(name = "name")
     String name;
 
+    @Column(name = "author")
+    String author;
+
     public StatusCode() {
     }
 
-    public StatusCode(Long id, Long code, String name) {
+    public StatusCode(Long id, Long code, String name, String author) {
         this.id = id;
         this.code = code;
         this.name = name;
+        this.author = author;
     }
 
-    public StatusCode(Long code, String name) {
+    public StatusCode(Long code, String name, String author) {
         this.code = code;
         this.name = name;
+        this.author = author;
     }
 }
