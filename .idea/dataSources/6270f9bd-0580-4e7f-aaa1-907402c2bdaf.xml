@@ -784,7 +784,7 @@ false YEKT
 false Z
 false Zulu
 </TimeZones>
-      <IntrospectionStateNumber>1877</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1914</IntrospectionStateNumber>
       <StartupTime>1637327376</StartupTime>
     </root>
     <database id="2" parent="1" name="currency">
@@ -813,7 +813,7 @@ false Zulu
 13158||-9223372036854775808|U|G
 13158||10|U|G</Grants>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1878</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1915</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|25308|25310|1
 sequence|table|25320|25322|1
@@ -884,7 +884,7 @@ sequence|table|25374|25376|1
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1878</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1915</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="20" parent="5" name="plpgsql">
@@ -1048,7 +1048,17 @@ sequence|table|25374|25376|1
       <StateNumber>1771</StateNumber>
       <AccessMethodId>2</AccessMethodId>
     </table>
-    <column id="42" parent="37" name="id">
+    <routine id="42" parent="19" name="getotchet">
+      <ObjectId>25427</ObjectId>
+      <Owner>postgres</Owner>
+      <SourceTextLength>467</SourceTextLength>
+      <StateNumber>1912</StateNumber>
+      <ArgumentsDefinition>begin_date timestamp without time zone, end_date timestamp without time zone</ArgumentsDefinition>
+      <ResultsDefinition>TABLE(url character varying, namespace character varying, author character varying, count_type integer, count_service integer, count_status integer, count_doc_code integer)</ResultsDefinition>
+      <ReturnsSet>1</ReturnsSet>
+      <LanguageName>sql</LanguageName>
+    </routine>
+    <column id="43" parent="37" name="id">
       <Position>1</Position>
       <Comment>ИД, Первичный ключ</Comment>
       <DataType>bigint|0s</DataType>
@@ -1057,20 +1067,20 @@ sequence|table|25374|25376|1
       <DefaultExpression>nextval(&apos;service_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="43" parent="37" name="service_code">
+    <column id="44" parent="37" name="service_code">
       <Position>2</Position>
       <Comment>Код услуги</Comment>
       <DataType>varchar(26)|0s</DataType>
       <StateNumber>1703</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="44" parent="37" name="author">
+    <column id="45" parent="37" name="author">
       <Position>5</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1788</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="45" parent="37" name="service_pkey">
+    <index id="46" parent="37" name="service_pkey">
       <ObjectId>25318</ObjectId>
       <StateNumber>1788</StateNumber>
       <ColNames>id</ColNames>
@@ -1080,7 +1090,7 @@ sequence|table|25374|25376|1
       <ClassIds>3124</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="46" parent="37" name="service_service_code_uindex">
+    <index id="47" parent="37" name="service_service_code_uindex">
       <ObjectId>25414</ObjectId>
       <StateNumber>1805</StateNumber>
       <ColNames>service_code</ColNames>
@@ -1090,14 +1100,14 @@ sequence|table|25374|25376|1
       <ClassIds>3126</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="47" parent="37" name="service_pkey">
+    <key id="48" parent="37" name="service_pkey">
       <ObjectId>25319</ObjectId>
       <StateNumber>1703</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>service_pkey</UnderlyingIndexName>
     </key>
-    <column id="48" parent="38" name="id">
+    <column id="49" parent="38" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -1105,25 +1115,25 @@ sequence|table|25374|25376|1
       <DefaultExpression>nextval(&apos;status_code_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="49" parent="38" name="code">
+    <column id="50" parent="38" name="code">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>1708</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="50" parent="38" name="name">
+    <column id="51" parent="38" name="name">
       <Position>3</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1708</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="51" parent="38" name="author">
+    <column id="52" parent="38" name="author">
       <Position>5</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1784</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="52" parent="38" name="status_code_pkey">
+    <index id="53" parent="38" name="status_code_pkey">
       <ObjectId>25330</ObjectId>
       <StateNumber>1784</StateNumber>
       <ColNames>id</ColNames>
@@ -1133,7 +1143,7 @@ sequence|table|25374|25376|1
       <ClassIds>3124</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="53" parent="38" name="status_code_code_uindex">
+    <index id="54" parent="38" name="status_code_code_uindex">
       <ObjectId>25416</ObjectId>
       <StateNumber>1814</StateNumber>
       <ColNames>code</ColNames>
@@ -1142,14 +1152,14 @@ sequence|table|25374|25376|1
       <ClassIds>1978</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="54" parent="38" name="status_code_pkey">
+    <key id="55" parent="38" name="status_code_pkey">
       <ObjectId>25331</ObjectId>
       <StateNumber>1708</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>status_code_pkey</UnderlyingIndexName>
     </key>
-    <column id="55" parent="39" name="id">
+    <column id="56" parent="39" name="id">
       <Position>1</Position>
       <Comment>ИД, первичный ключ</Comment>
       <DataType>bigint|0s</DataType>
@@ -1158,7 +1168,7 @@ sequence|table|25374|25376|1
       <DefaultExpression>nextval(&apos;store_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="56" parent="39" name="type_id">
+    <column id="57" parent="39" name="type_id">
       <Position>2</Position>
       <Comment>ИД таблицы type, внешний ключ</Comment>
       <DataType>bigint|0s</DataType>
@@ -1166,55 +1176,55 @@ sequence|table|25374|25376|1
       <StateNumber>1715</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="57" parent="39" name="service_id">
+    <column id="58" parent="39" name="service_id">
       <Position>3</Position>
       <Comment>ИД таблицы service, внешний ключ</Comment>
       <DataType>bigint|0s</DataType>
       <StateNumber>1715</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="58" parent="39" name="url">
+    <column id="59" parent="39" name="url">
       <Position>5</Position>
       <Comment>URL загрузки XSD</Comment>
       <DataType>text|0s</DataType>
       <StateNumber>1715</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="59" parent="39" name="namespace">
+    <column id="60" parent="39" name="namespace">
       <Position>8</Position>
       <Comment>Пространство имен XSD документа</Comment>
       <DataType>text|0s</DataType>
       <StateNumber>1715</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="60" parent="39" name="status_id">
+    <column id="61" parent="39" name="status_id">
       <Position>11</Position>
       <Comment>Код статуса</Comment>
       <DataType>bigint|0s</DataType>
       <StateNumber>1767</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="61" parent="39" name="doc_code">
+    <column id="62" parent="39" name="doc_code">
       <Position>12</Position>
       <Comment>Код документа</Comment>
       <DataType>text|0s</DataType>
       <StateNumber>1715</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="62" parent="39" name="author">
+    <column id="63" parent="39" name="author">
       <Position>15</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1780</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="63" parent="39" name="created">
+    <column id="64" parent="39" name="created">
       <Position>16</Position>
       <DataType>timestamp|0s</DataType>
       <StateNumber>1875</StateNumber>
       <DefaultExpression>now()</DefaultExpression>
       <TypeId>1114</TypeId>
     </column>
-    <index id="64" parent="39" name="store_pkey">
+    <index id="65" parent="39" name="store_pkey">
       <ObjectId>25354</ObjectId>
       <StateNumber>1780</StateNumber>
       <ColNames>id</ColNames>
@@ -1224,14 +1234,14 @@ sequence|table|25374|25376|1
       <ClassIds>3124</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="65" parent="39" name="store_pkey">
+    <key id="66" parent="39" name="store_pkey">
       <ObjectId>25355</ObjectId>
       <StateNumber>1715</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>store_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="66" parent="39" name="store_type_id_fkey">
+    <foreign-key id="67" parent="39" name="store_type_id_fkey">
       <ObjectId>25356</ObjectId>
       <StateNumber>1715</StateNumber>
       <ColNames>type_id</ColNames>
@@ -1241,7 +1251,7 @@ sequence|table|25374|25376|1
       <RefKeyName>type_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="67" parent="39" name="store_service_id_fkey">
+    <foreign-key id="68" parent="39" name="store_service_id_fkey">
       <ObjectId>25361</ObjectId>
       <StateNumber>1715</StateNumber>
       <ColNames>service_id</ColNames>
@@ -1251,7 +1261,7 @@ sequence|table|25374|25376|1
       <RefKeyName>service_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="68" parent="39" name="store_status_code_fkey">
+    <foreign-key id="69" parent="39" name="store_status_code_fkey">
       <ObjectId>25366</ObjectId>
       <StateNumber>1715</StateNumber>
       <ColNames>status_id</ColNames>
@@ -1261,7 +1271,7 @@ sequence|table|25374|25376|1
       <RefKeyName>status_code_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="69" parent="40" name="id">
+    <column id="70" parent="40" name="id">
       <Position>1</Position>
       <Comment>ИД, первичный ключ</Comment>
       <DataType>bigint|0s</DataType>
@@ -1270,27 +1280,27 @@ sequence|table|25374|25376|1
       <DefaultExpression>nextval(&apos;type_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="70" parent="40" name="label">
+    <column id="71" parent="40" name="label">
       <Position>2</Position>
       <Comment>Название xsd</Comment>
       <DataType>varchar|0s</DataType>
       <StateNumber>1709</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="71" parent="40" name="description">
+    <column id="72" parent="40" name="description">
       <Position>3</Position>
       <Comment>Описание xsd</Comment>
       <DataType>text|0s</DataType>
       <StateNumber>1709</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="72" parent="40" name="author">
+    <column id="73" parent="40" name="author">
       <Position>5</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1776</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="73" parent="40" name="type_pkey">
+    <index id="74" parent="40" name="type_pkey">
       <ObjectId>25342</ObjectId>
       <StateNumber>1776</StateNumber>
       <ColNames>id</ColNames>
@@ -1300,7 +1310,7 @@ sequence|table|25374|25376|1
       <ClassIds>3124</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="74" parent="40" name="type_label_uindex">
+    <index id="75" parent="40" name="type_label_uindex">
       <ObjectId>25418</ObjectId>
       <StateNumber>1827</StateNumber>
       <ColNames>label</ColNames>
@@ -1310,14 +1320,14 @@ sequence|table|25374|25376|1
       <ClassIds>3126</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="75" parent="40" name="type_pkey">
+    <key id="76" parent="40" name="type_pkey">
       <ObjectId>25343</ObjectId>
       <StateNumber>1709</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>type_pkey</UnderlyingIndexName>
     </key>
-    <column id="76" parent="41" name="id">
+    <column id="77" parent="41" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -1325,25 +1335,25 @@ sequence|table|25374|25376|1
       <DefaultExpression>nextval(&apos;usrs_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="77" parent="41" name="login">
+    <column id="78" parent="41" name="login">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1763</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="78" parent="41" name="name">
+    <column id="79" parent="41" name="name">
       <Position>3</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1734</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="79" parent="41" name="password">
+    <column id="80" parent="41" name="password">
       <Position>4</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1771</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="80" parent="41" name="usrs_pkey">
+    <index id="81" parent="41" name="usrs_pkey">
       <ObjectId>25383</ObjectId>
       <StateNumber>1734</StateNumber>
       <ColNames>id</ColNames>
@@ -1353,12 +1363,24 @@ sequence|table|25374|25376|1
       <ClassIds>3124</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="81" parent="41" name="usrs_pkey">
+    <key id="82" parent="41" name="usrs_pkey">
       <ObjectId>25384</ObjectId>
       <StateNumber>1734</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>usrs_pkey</UnderlyingIndexName>
     </key>
+    <argument id="83" parent="42">
+      <ArgumentDirection>T</ArgumentDirection>
+      <DataType>table(&quot;url&quot; varchar, &quot;namespace&quot; varchar, &quot;author&quot; varchar, &quot;count_type&quot; integer, &quot;count_service&quot; integer, &quot;count_status&quot; integer, &quot;count_doc_code&quot; integer)|0v</DataType>
+    </argument>
+    <argument id="84" parent="42" name="begin_date">
+      <Position>1</Position>
+      <DataType>timestamp|0s</DataType>
+    </argument>
+    <argument id="85" parent="42" name="end_date">
+      <Position>2</Position>
+      <DataType>timestamp|0s</DataType>
+    </argument>
   </database-model>
 </dataSource>

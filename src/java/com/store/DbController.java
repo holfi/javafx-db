@@ -92,6 +92,7 @@ public class DbController {
     @FXML TableColumn userLoginCol;
     @FXML TableColumn userNameCol;
 
+    // Report properties
     @FXML DatePicker dateFrom;
     @FXML DatePicker dateTo;
     @FXML TableColumn repUrl;
@@ -143,7 +144,8 @@ public class DbController {
         else
             query = String.format(query, "");
 
-        Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/xsd_store", "postgres", "1");
+        Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/xsd_store",
+                "postgres", "1");
         Statement statement = con.createStatement();
         ResultSet rs = statement.executeQuery(query);
 
