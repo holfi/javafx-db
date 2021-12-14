@@ -9,7 +9,6 @@ import com.store.entity.*;
 import com.store.entity.simple_entity.*;
 import com.store.service.ConvertService;
 import com.store.service.DbService;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -17,7 +16,6 @@ import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.util.converter.LongStringConverter;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +29,6 @@ import java.sql.*;
 import java.text.DecimalFormat;
 import java.text.ParsePosition;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -67,7 +64,6 @@ public class DbController {
     @FXML TextField typeDesc;
     @FXML TextField typeAuthor;
     @FXML TableView<SimpleType> typeTable;
-    @FXML TableColumn typeIdCol;
     @FXML TableColumn typeLabelCol;
     @FXML TableColumn typeDescCol;
     @FXML TableColumn typeAuthorCol;
@@ -77,7 +73,6 @@ public class DbController {
     @FXML TextField serviceCode;
     @FXML TextField serviceAuthor;
     @FXML TableView<SimpleService> serviceTable;
-    @FXML TableColumn serviceIdCol;
     @FXML TableColumn serviceCodeCol;
     @FXML TableColumn serviceAuthorCol;
 
@@ -87,7 +82,6 @@ public class DbController {
     @FXML TextField statusName;
     @FXML TextField statusAuthor;
     @FXML TableView<SimpleStatusCode> statusTable;
-    @FXML TableColumn statusIdCol;
     @FXML TableColumn statusCodeCol;
     @FXML TableColumn statusNameCol;
     @FXML TableColumn statusAuthorCol;
@@ -102,7 +96,6 @@ public class DbController {
     @FXML TextField storeDocCode;
     @FXML TextField storeAuthor;
     @FXML TableView<SimpleStore> storeTable;
-    @FXML TableColumn storeIdCol;
     @FXML TableColumn storeTypeIdCol;
     @FXML TableColumn storeStatusIdCol;
     @FXML TableColumn storeServiceIdCol;
@@ -117,7 +110,6 @@ public class DbController {
     @FXML TextField userName;
     @FXML TextField userPassword;
     @FXML TableView<SimpleUser> userTable;
-    @FXML TableColumn userIdCol;
     @FXML TableColumn userLoginCol;
     @FXML TableColumn userNameCol;
 
@@ -133,9 +125,6 @@ public class DbController {
     @FXML TableColumn repDocCode;
     @FXML TableView repTable;
 
-    public DbController() throws DocumentException, IOException {
-    }
-
     @FXML
     public void initialize() {
         typeTable.setEditable(true);
@@ -150,7 +139,7 @@ public class DbController {
         userLoginForm = LoginController.userLogin;
     }
 
-    public void getReport() throws SQLException, IOException, DocumentException, InterruptedException {
+    public void getReport() throws SQLException, IOException, InterruptedException {
         List<Report> reports = new ArrayList<>();
         String query = "select s.url, s.namespace, s.author, count(t.label), count(s2.service_code),\n" +
                 "       count(sc.name), count(s.doc_code)\n" +
@@ -182,26 +171,41 @@ public class DbController {
                     rs.getString(5), rs.getString(6), rs.getString(7)));
         }
 
+        rs = statement.executeQuery("select count(*) from type");
+        rs.next();
+        long countTypes = rs.getLong(1);
+
+        rs = statement.executeQuery("select count(*) from service");
+        rs.next();
+        long countServices = rs.getLong(1);
+
+        rs = statement.executeQuery("select count(*) from status_code");
+        rs.next();
+        long countStatuses = rs.getLong(1);
+
+        statement.close();
+        con.close();
+
         repTable.setItems(convertService.convertReport(reports));
         dateFrom.setValue(null);
         dateTo.setValue(null);
 
-        String FILE = "ex.pdf";
+        String file = "otchet.pdf";
 
         try {
             Document document = new Document();
-            PdfWriter.getInstance(document, new FileOutputStream(FILE));
+            PdfWriter.getInstance(document, new FileOutputStream(file));
             document.open();
             addMetaData(document);
-            addTitlePage(document, reports);
+            addTitlePage(document, reports, countTypes, countServices, countStatuses);
             document.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if ((new File("D:\\IdeaProjects\\javafx-db\\ex.pdf")).exists()) {
+        if ((new File("D:\\IdeaProjects\\javafx-db\\otchet.pdf")).exists()) {
             Process p = Runtime
                     .getRuntime()
-                    .exec("rundll32 url.dll,FileProtocolHandler D:\\IdeaProjects\\javafx-db\\ex.pdf");
+                    .exec("rundll32 url.dll,FileProtocolHandler D:\\IdeaProjects\\javafx-db\\otchet.pdf");
             p.waitFor();
 
         } else {
@@ -216,7 +220,7 @@ public class DbController {
         document.addCreator("Свяжин Н. О.");
     }
 
-    private static void addTitlePage(Document document, List<Report> reports)
+    private static void addTitlePage(Document document, List<Report> reports, long types, long services, long statuses)
             throws DocumentException {
         Paragraph preface = new Paragraph();
         addEmptyLine(preface, 3);
@@ -224,7 +228,7 @@ public class DbController {
         paragraph.setAlignment(Element.ALIGN_CENTER);
         preface.add(paragraph);
 
-        PdfPTable table = new PdfPTable(4);
+        PdfPTable table = new PdfPTable(5);
 
         PdfPCell c1 = new PdfPCell(new Phrase("Кол. типов", arialFont));
         c1.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -242,6 +246,10 @@ public class DbController {
         c4.setHorizontalAlignment(Element.ALIGN_CENTER);
         table.addCell(c4);
 
+        PdfPCell c5 = new PdfPCell(new Phrase("Неймспейс", arialFont));
+        c5.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(c5);
+
         table.setHeaderRows(1);
 
         Map<String, Map<String, List<Report>>> collect = reports.stream()
@@ -250,7 +258,7 @@ public class DbController {
         for (String a : collect.keySet()) {
             PdfPCell cell = new PdfPCell(new Phrase("Автор: " + a, arialFont));
             cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-            cell.setColspan(4);
+            cell.setColspan(5);
             table.addCell(cell);
 
             for (String u : collect.get(a).keySet()) {
@@ -268,12 +276,29 @@ public class DbController {
                 PdfPCell cell4 = new PdfPCell(new Phrase(report.getRepUrl(), arialFont));
                 cell4.setHorizontalAlignment(Element.ALIGN_CENTER);
 
+                PdfPCell cell5 = new PdfPCell(new Phrase(report.getRepNamespace(), arialFont));
+                cell5.setHorizontalAlignment(Element.ALIGN_CENTER);
+
                 table.addCell(cell1);
                 table.addCell(cell2);
                 table.addCell(cell3);
                 table.addCell(cell4);
+                table.addCell(cell5);
            }
         }
+
+        PdfPCell cell6 = new PdfPCell(new Phrase("Всего типов: " + types, arialFont));
+        cell6.setColspan(5);
+
+        PdfPCell cell7 = new PdfPCell(new Phrase("Всего статусов: " + statuses, arialFont));
+        cell7.setColspan(5);
+
+        PdfPCell cell8 = new PdfPCell(new Phrase("Всего услуг: " + services, arialFont));
+        cell8.setColspan(5);
+
+        table.addCell(cell6);
+        table.addCell(cell7);
+        table.addCell(cell8);
 
         document.add(preface);
 
@@ -290,19 +315,19 @@ public class DbController {
         }
     }
 
-    public void typeFind(ActionEvent event) {
+    public void typeFind() {
         typeTable.setItems(convertService.convertType(
                 dbService.find(new Type(parseToLong(typeId.getText()), typeLabel.getText(), typeDesc.getText(), typeAuthor.getText()))));
         clearTypeText();
     }
 
-    public void serviceFind(ActionEvent event) {
+    public void serviceFind() {
         serviceTable.setItems(convertService.convertService(
                 dbService.find(new Service(parseToLong(serviceId.getText()), serviceCode.getText(), serviceAuthor.getText()))));
         clearServiceText();
     }
 
-    public void storeFind(ActionEvent event) {
+    public void storeFind() {
         storeTable.setItems(convertService.convertStore(
                 dbService.find(new Store(parseToLong(storeId.getText()),
                         parseToLong(storeTypeId.getText()), parseToLong(storeServiceId.getText()),
@@ -310,30 +335,36 @@ public class DbController {
         clearServiceText();
     }
 
-    public void userFind(ActionEvent event) {
+    public void userFind() {
         userTable.setItems(convertService.convertUser(
                 dbService.find(new User(parseToLong(userId.getText()), userLogin.getText(), userName.getText(), ""))));
         clearServiceText();
     }
 
-    public void statusFind(ActionEvent event) {
+    public void statusFind() {
         statusTable.setItems(convertService.convertStatus(
                 dbService.find(new StatusCode(parseToLong(statusId.getText()), parseToLong(statusCode.getText()), statusName.getText(), statusAuthor.getText()))));
         clearServiceText();
     }
 
-    public void typeAdd(ActionEvent event) {
+    public void typeAdd() {
         if (typeLabel.getText().equals("") || typeDesc.getText().equals("")) {
             new Alert(Alert.AlertType.NONE, "Поле 'Название типа' и 'Описание' должны быть заполнены", new ButtonType("Закрыть")).showAndWait();
             return;
         }
 
-        dbService.saveOrUpdate(new Type(typeLabel.getText(), typeDesc.getText(), userLoginForm));
+        try {
+            dbService.saveOrUpdate(new Type(typeLabel.getText(), typeDesc.getText(), userLoginForm));
+        }
+        catch (DataAccessException d) {
+            showDbError(d);
+            return;
+        }
         clearTypeText();
         typeTable.setItems(convertService.convertType(dbService.findAllTypes()));
     }
 
-    public void statusAdd(ActionEvent event) {
+    public void statusAdd() {
         if (statusCode.getText().equals("") || statusName.getText().equals("")) {
             new Alert(Alert.AlertType.NONE, "Поле 'Код' и 'Название статуса' должны быть заполнены", new ButtonType("Закрыть")).showAndWait();
             return;
@@ -343,14 +374,14 @@ public class DbController {
             dbService.saveOrUpdate(new StatusCode(parseToLong(statusCode.getText()), statusName.getText(), userLoginForm));
         }
         catch (DataAccessException d) {
-            String error = d.getRootCause().toString();
-            new Alert(Alert.AlertType.NONE, "Ошибка: " + error.substring(error.indexOf("Подробности: ") + 13), new ButtonType("Закрыть")).showAndWait();
+            showDbError(d);
+            return;
         }
         clearStatusText();
         statusTable.setItems(convertService.convertStatus(dbService.findAllStatuses()));
     }
 
-    public void storeAdd(ActionEvent event) {
+    public void storeAdd() {
         if (storeTypeId.getText().equals("") || storeUrl.getText().equals("")) {
             new Alert(Alert.AlertType.NONE, "Поле 'ID типа' и 'URL' должны быть заполнены", new ButtonType("Закрыть")).showAndWait();
             return;
@@ -361,14 +392,14 @@ public class DbController {
                     parseToLong(storeStatusId.getText()), storeUrl.getText(), storeNamespace.getText(), storeDocCode.getText(), userLoginForm));
         }
         catch (DataAccessException d) {
-            String error = d.getRootCause().toString();
-            new Alert(Alert.AlertType.NONE, "Ошибка: " + error.substring(error.indexOf("Подробности: ") + 13), new ButtonType("Закрыть")).showAndWait();
+            showDbError(d);
+            return;
         }
         clearStoreText();
         storeTable.setItems(convertService.convertStore(dbService.findAllStores()));
     }
 
-    public void userAdd(ActionEvent event) {
+    public void userAdd() {
         if (userLogin.getText().equals("") || userName.getText().equals("") || userPassword.getText().equals("")) {
             new Alert(Alert.AlertType.NONE, "Поле 'Логин', 'Имя' и 'Пароль' должны быть заполнены", new ButtonType("Закрыть")).showAndWait();
             return;
@@ -377,14 +408,14 @@ public class DbController {
             dbService.saveOrUpdate(new User(userLogin.getText(), userName.getText(), userPassword.getText()));
         }
         catch (DataAccessException d) {
-            String error = d.getRootCause().toString();
-            new Alert(Alert.AlertType.NONE, "Ошибка: " + error.substring(error.indexOf("Подробности: ") + 13), new ButtonType("Закрыть")).showAndWait();
+            showDbError(d);
+            return;
         }
         clearUserText();
         userTable.setItems(convertService.convertUser(dbService.findAllUsers()));
     }
 
-    public void serviceAdd(ActionEvent event) {
+    public void serviceAdd() {
         if (serviceCode.getText().equals("")) {
             new Alert(Alert.AlertType.NONE, "Поле 'Код услуги' должно быть заполнено", new ButtonType("Закрыть")).showAndWait();
             return;
@@ -394,48 +425,11 @@ public class DbController {
             dbService.saveOrUpdate(new Service(serviceCode.getText(), userLoginForm));
         }
         catch (DataAccessException d) {
-            String error = d.getRootCause().toString();
-            new Alert(Alert.AlertType.NONE, "Ошибка: " + error.substring(error.indexOf("Подробности: ") + 13), new ButtonType("Закрыть")).showAndWait();
+            showDbError(d);
+            return;
         }
         clearServiceText();
         serviceTable.setItems(convertService.convertService(dbService.findAllServices()));
-    }
-
-    public void typeDelete(ActionEvent event) {
-        dbService.deleteType(Long.valueOf(typeId.getText()));
-
-        clearTypeText();
-        typeTable.setItems(convertService.convertType(dbService.findAllTypes()));
-    }
-
-    public void statusDelete(ActionEvent event) {
-        System.out.println("inside");
-
-    }
-
-    public void storeDelete(ActionEvent event) {
-        dbService.deleteStore(Long.valueOf(storeId.getText()));
-
-        clearStoreText();
-        storeTable.setItems(convertService.convertStore(dbService.findAllStores()));
-    }
-
-    public void userDelete(ActionEvent event) {
-        dbService.deleteUser(Long.valueOf(userId.getText()));
-
-        clearUserText();
-        userTable.setItems(convertService.convertUser(dbService.findAllUsers()));
-    }
-
-    public void serviceDelete(KeyEvent event) {
-        dbService.deleteService(Long.valueOf(serviceId.getText()));
-
-        clearServiceText();
-        serviceTable.setItems(convertService.convertService(dbService.findAllServices()));
-    }
-
-    public void typeClear(ActionEvent event) {
-        clearTypeText();
     }
 
     public void clearTypeText() {
@@ -848,6 +842,11 @@ public class DbController {
         catch (Exception e) {
             return null;
         }
+    }
+
+    public void showDbError(DataAccessException d) {
+        String error = d.getRootCause().toString();
+        new Alert(Alert.AlertType.NONE, "Ошибка: " + error.substring(error.indexOf("Подробности: ") + 13), new ButtonType("Закрыть")).showAndWait();
     }
 
 }

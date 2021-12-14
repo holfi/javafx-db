@@ -28,7 +28,7 @@
                         </TableView>
                         <TextField fx:id="statusId" layoutX="14.0" layoutY="407.0" />
                         <TextField fx:id="statusCode" layoutX="181.0" layoutY="407.0" />
-                        <Button layoutX="197.0" layoutY="527.0" mnemonicParsing="false" onAction="#statusFind" prefHeight="31.0" prefWidth="100.0" text="Найти">
+                        <Button layoutX="234.0" layoutY="519.0" mnemonicParsing="false" onAction="#statusFind" prefHeight="31.0" prefWidth="100.0" text="Найти">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -49,12 +49,12 @@
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <Button layoutX="433.0" layoutY="527.0" mnemonicParsing="false" onAction="#clearStatusText" prefHeight="31.0" prefWidth="100.0" text="Очистить">
+                        <Button layoutX="470.0" layoutY="519.0" mnemonicParsing="false" onAction="#clearStatusText" prefHeight="31.0" prefWidth="100.0" text="Очистить">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="316.0" layoutY="527.0" mnemonicParsing="false" onAction="#statusAdd" prefHeight="31.0" prefWidth="100.0" text="Добавить">
+                        <Button layoutX="353.0" layoutY="519.0" mnemonicParsing="false" onAction="#statusAdd" prefHeight="31.0" prefWidth="100.0" text="Добавить">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -110,17 +110,17 @@
                         </Label>
                         <TextField fx:id="storeNamespace" layoutX="223.0" layoutY="467.0" />
                         <TextField fx:id="storeDocCode" layoutX="388.0" layoutY="467.0" />
-                        <Button layoutX="168.0" layoutY="518.0" mnemonicParsing="false" onAction="#storeFind" prefHeight="31.0" prefWidth="100.0" text="Найти">
+                        <Button layoutX="207.0" layoutY="516.0" mnemonicParsing="false" onAction="#storeFind" prefHeight="31.0" prefWidth="100.0" text="Найти">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="399.0" layoutY="518.0" mnemonicParsing="false" onAction="#clearStoreText" prefHeight="31.0" prefWidth="100.0" text="Очистить">
+                        <Button layoutX="438.0" layoutY="516.0" mnemonicParsing="false" onAction="#clearStoreText" prefHeight="31.0" prefWidth="100.0" text="Очистить">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="287.0" layoutY="518.0" mnemonicParsing="false" onAction="#storeAdd" prefHeight="31.0" prefWidth="100.0" text="Добавить">
+                        <Button layoutX="326.0" layoutY="516.0" mnemonicParsing="false" onAction="#storeAdd" prefHeight="31.0" prefWidth="100.0" text="Добавить">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -161,17 +161,17 @@
                               <TableColumn fx:id="userNameCol" prefWidth="221.0" text="Имя" />
                            </columns>
                         </TableView>
-                        <Button layoutX="165.0" layoutY="527.0" mnemonicParsing="false" onAction="#userFind" prefHeight="31.0" prefWidth="100.0" text="Найти">
+                        <Button layoutX="204.0" layoutY="518.0" mnemonicParsing="false" onAction="#userFind" prefHeight="31.0" prefWidth="100.0" text="Найти">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="402.0" layoutY="527.0" mnemonicParsing="false" onAction="#clearUserText" prefHeight="31.0" prefWidth="100.0" text="Очистить">
+                        <Button layoutX="441.0" layoutY="518.0" mnemonicParsing="false" onAction="#clearUserText" prefHeight="31.0" prefWidth="100.0" text="Очистить">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="284.0" layoutY="527.0" mnemonicParsing="false" onAction="#userAdd" prefHeight="31.0" prefWidth="100.0" text="Добавить">
+                        <Button layoutX="323.0" layoutY="518.0" mnemonicParsing="false" onAction="#userAdd" prefHeight="31.0" prefWidth="100.0" text="Добавить">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -215,17 +215,17 @@
                               <TableColumn fx:id="typeAuthorCol" minWidth="0.0" prefWidth="160.79995727539062" text="Автор" />
                           </columns>
                         </TableView>
-                        <Button fx:id="typeFind" layoutX="173.0" layoutY="519.0" mnemonicParsing="false" onAction="#typeFind" prefHeight="31.0" prefWidth="100.0" text="Найти">
+                        <Button fx:id="typeFind" layoutX="233.0" layoutY="517.0" mnemonicParsing="false" onAction="#typeFind" prefHeight="31.0" prefWidth="100.0" text="Найти">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="411.0" layoutY="519.0" mnemonicParsing="false" onAction="#typeClear" prefHeight="31.0" prefWidth="100.0" text="Очистить">
+                        <Button layoutX="471.0" layoutY="517.0" mnemonicParsing="false" onAction="#typeClear" prefHeight="31.0" prefWidth="100.0" text="Очистить">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="292.0" layoutY="519.0" mnemonicParsing="false" onAction="#typeAdd" prefHeight="31.0" prefWidth="100.0" text="Добавить">
+                        <Button layoutX="352.0" layoutY="517.0" mnemonicParsing="false" onAction="#typeAdd" prefHeight="31.0" prefWidth="100.0" text="Добавить">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -268,17 +268,17 @@
                               <TableColumn fx:id="serviceAuthorCol" prefWidth="126.0" text="Автор" />
                            </columns>
                         </TableView>
-                        <Button layoutX="173.0" layoutY="519.0" mnemonicParsing="false" onAction="#serviceFind" prefHeight="31.0" prefWidth="100.0" text="Найти">
+                        <Button layoutX="215.0" layoutY="517.0" mnemonicParsing="false" onAction="#serviceFind" prefHeight="31.0" prefWidth="100.0" text="Найти">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="406.0" layoutY="519.0" mnemonicParsing="false" onAction="#clearServiceText" prefHeight="31.0" prefWidth="100.0" text="Очистить">
+                        <Button layoutX="448.0" layoutY="517.0" mnemonicParsing="false" onAction="#clearServiceText" prefHeight="31.0" prefWidth="100.0" text="Очистить">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="292.0" layoutY="519.0" mnemonicParsing="false" onAction="#serviceAdd" prefHeight="31.0" prefWidth="100.0" text="Добавить">
+                        <Button layoutX="334.0" layoutY="517.0" mnemonicParsing="false" onAction="#serviceAdd" prefHeight="31.0" prefWidth="100.0" text="Добавить">
                            <font>
                               <Font size="15.0" />
                            </font>
