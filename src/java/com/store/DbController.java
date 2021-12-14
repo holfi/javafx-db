@@ -1,5 +1,10 @@
 package com.store;
 
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.BaseFont;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import com.store.entity.*;
 import com.store.entity.simple_entity.*;
 import com.store.service.ConvertService;
@@ -10,22 +15,46 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.util.converter.LongStringConverter;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.*;
 import java.text.DecimalFormat;
 import java.text.ParsePosition;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Component
 @FxmlView("db.fxml")
 public class DbController {
+
+    static String arial = "C:\\Windows\\Fonts\\Arial.ttf";
+    static BaseFont bf;
+
+    static {
+        try {
+            bf = BaseFont.createFont(arial, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    static Font arialFontBig = new Font(bf, 30, Font.NORMAL);
+    static Font arialFont = new Font(bf, 14, Font.NORMAL);
 
     String userLoginForm;
 
@@ -104,6 +133,9 @@ public class DbController {
     @FXML TableColumn repDocCode;
     @FXML TableView repTable;
 
+    public DbController() throws DocumentException, IOException {
+    }
+
     @FXML
     public void initialize() {
         typeTable.setEditable(true);
@@ -118,7 +150,7 @@ public class DbController {
         userLoginForm = LoginController.userLogin;
     }
 
-    public void getReport() throws SQLException {
+    public void getReport() throws SQLException, IOException, DocumentException, InterruptedException {
         List<Report> reports = new ArrayList<>();
         String query = "select s.url, s.namespace, s.author, count(t.label), count(s2.service_code),\n" +
                 "       count(sc.name), count(s.doc_code)\n" +
@@ -127,22 +159,18 @@ public class DbController {
                 "        join service s2 on s2.id = s.service_id\n" +
                 "        join status_code sc on sc.id = s.status_id\n" +
                 " %s " +
-                "    group by s.author, s.url, s.namespace";
+                "    group by s.author, s.url, s.namespace\n" +
+                "    order by s.url";
 
         String bothDates = "where s.created > '" + dateFrom.getValue() + "' and s.created < '" + dateTo.getValue() + "'\n";
-        String fromDate = "where s.created > '" + dateFrom.getValue() + "'\n";
-        String toDate = "where s.created < '" + dateTo.getValue() + "'\n";
 
         if (dateFrom.getValue() != null && dateTo.getValue() != null) {
             query = String.format(query, bothDates);
         }
-        else if (dateFrom.getValue() != null && dateTo.getValue() == null) {
-            query = String.format(query, fromDate);
+        else {
+            new Alert(Alert.AlertType.NONE, "Заполните обе даты", new ButtonType("Закрыть")).showAndWait();
+            return;
         }
-        else if(dateFrom.getValue() == null && dateTo.getValue() != null)
-            query = String.format(query, toDate);
-        else
-            query = String.format(query, "");
 
         Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/xsd_store",
                 "postgres", "1");
@@ -157,6 +185,109 @@ public class DbController {
         repTable.setItems(convertService.convertReport(reports));
         dateFrom.setValue(null);
         dateTo.setValue(null);
+
+        String FILE = "ex.pdf";
+
+        try {
+            Document document = new Document();
+            PdfWriter.getInstance(document, new FileOutputStream(FILE));
+            document.open();
+            addMetaData(document);
+            addTitlePage(document, reports);
+            document.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if ((new File("D:\\IdeaProjects\\javafx-db\\ex.pdf")).exists()) {
+            Process p = Runtime
+                    .getRuntime()
+                    .exec("rundll32 url.dll,FileProtocolHandler D:\\IdeaProjects\\javafx-db\\ex.pdf");
+            p.waitFor();
+
+        } else {
+            System.out.println("File is not exists");
+        }
+
+    }
+
+    private static void addMetaData(Document document) {
+        document.addTitle("Отчет ");
+        document.addAuthor("Свяжин Н. О.");
+        document.addCreator("Свяжин Н. О.");
+    }
+
+    private static void addTitlePage(Document document, List<Report> reports)
+            throws DocumentException {
+        Paragraph preface = new Paragraph();
+        addEmptyLine(preface, 3);
+        Paragraph paragraph = new Paragraph("Отчет по документообороту", arialFontBig);
+        paragraph.setAlignment(Element.ALIGN_CENTER);
+        preface.add(paragraph);
+
+        PdfPTable table = new PdfPTable(4);
+
+        PdfPCell c1 = new PdfPCell(new Phrase("Кол. типов", arialFont));
+        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(c1);
+
+        PdfPCell c2 = new PdfPCell(new Phrase("Кол. статусов", arialFont));
+        c2.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(c2);
+
+        PdfPCell c3 = new PdfPCell(new Phrase("Кол. услуг", arialFont));
+        c3.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(c3);
+
+        PdfPCell c4 = new PdfPCell(new Phrase("URL", arialFont));
+        c4.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(c4);
+
+        table.setHeaderRows(1);
+
+        Map<String, Map<String, List<Report>>> collect = reports.stream()
+                .collect(Collectors.groupingBy(Report::getRepAuthor, Collectors.groupingBy(Report::getRepUrl)));
+
+        for (String a : collect.keySet()) {
+            PdfPCell cell = new PdfPCell(new Phrase("Автор: " + a, arialFont));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setColspan(4);
+            table.addCell(cell);
+
+            for (String u : collect.get(a).keySet()) {
+                Report report = collect.get(a).get(u).get(0);
+
+                PdfPCell cell1 = new PdfPCell(new Phrase(report.getRepType(), arialFont));
+                cell1.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+                PdfPCell cell2 = new PdfPCell(new Phrase(report.getRepStatus(), arialFont));
+                cell2.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+                PdfPCell cell3 = new PdfPCell(new Phrase(report.getRepService(), arialFont));
+                cell3.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+                PdfPCell cell4 = new PdfPCell(new Phrase(report.getRepUrl(), arialFont));
+                cell4.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+                table.addCell(cell1);
+                table.addCell(cell2);
+                table.addCell(cell3);
+                table.addCell(cell4);
+           }
+        }
+
+        document.add(preface);
+
+        Paragraph p = new Paragraph();
+        addEmptyLine(p, 3);
+
+        document.add(p);
+        document.add(table);
+    }
+
+    private static void addEmptyLine(Paragraph paragraph, int number) {
+        for (int i = 0; i < number; i++) {
+            paragraph.add(new Paragraph(" "));
+        }
     }
 
     public void typeFind(ActionEvent event) {
@@ -375,6 +506,7 @@ public class DbController {
         repStatus.setCellValueFactory(new PropertyValueFactory<Report, String>("repStatus"));
         repDocCode.setCellValueFactory(new PropertyValueFactory<Report, String>("repDocCode"));
 
+        typeLabelCol.setCellFactory(TextFieldTableCell.forTableColumn());
         typeLabelCol.setOnEditCommit(
                 (EventHandler<CellEditEvent<SimpleType, String>>) t -> {
                     SimpleType simpleType = t.getTableView().getItems().get(
@@ -384,6 +516,7 @@ public class DbController {
                 }
         );
 
+        typeDescCol.setCellFactory(TextFieldTableCell.forTableColumn());
         typeDescCol.setOnEditCommit(
                 (EventHandler<CellEditEvent<SimpleType, String>>) t -> {
                     SimpleType simpleType = t.getTableView().getItems().get(
@@ -393,8 +526,9 @@ public class DbController {
                 }
         );
 
+        statusCodeCol.setCellFactory(TextFieldTableCell.forTableColumn(new LongStringConverter()));
         statusCodeCol.setOnEditCommit(
-                (EventHandler<CellEditEvent<SimpleStatusCode, Integer>>) t -> {
+                (EventHandler<CellEditEvent<SimpleStatusCode, Long>>) t -> {
                     SimpleStatusCode simpleStatusCode = t.getTableView().getItems().get(
                             t.getTablePosition().getRow());
                     simpleStatusCode.setCode(t.getNewValue());
@@ -402,7 +536,8 @@ public class DbController {
                 }
         );
 
-        statusCodeCol.setOnEditCommit(
+        statusNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        statusNameCol.setOnEditCommit(
                 (EventHandler<CellEditEvent<SimpleStatusCode, String>>) t -> {
                     SimpleStatusCode simpleStatusCode = t.getTableView().getItems().get(
                             t.getTablePosition().getRow());
@@ -411,6 +546,7 @@ public class DbController {
                 }
         );
 
+        storeTypeIdCol.setCellFactory(TextFieldTableCell.forTableColumn(new LongStringConverter()));
         storeTypeIdCol.setOnEditCommit(
                 (EventHandler<CellEditEvent<SimpleStore, Long>>) t -> {
                     SimpleStore simpleStore = t.getTableView().getItems().get(
@@ -421,6 +557,7 @@ public class DbController {
                 }
         );
 
+        storeServiceIdCol.setCellFactory(TextFieldTableCell.forTableColumn(new LongStringConverter()));
         storeServiceIdCol.setOnEditCommit(
                 (EventHandler<CellEditEvent<SimpleStore, Long>>) t -> {
                     SimpleStore simpleStore = t.getTableView().getItems().get(
@@ -431,6 +568,7 @@ public class DbController {
                 }
         );
 
+        storeStatusIdCol.setCellFactory(TextFieldTableCell.forTableColumn(new LongStringConverter()));
         storeStatusIdCol.setOnEditCommit(
                 (EventHandler<CellEditEvent<SimpleStore, Long>>) t -> {
                     SimpleStore simpleStore = t.getTableView().getItems().get(
@@ -441,6 +579,7 @@ public class DbController {
                 }
         );
 
+        storeUrlCol.setCellFactory(TextFieldTableCell.forTableColumn());
         storeUrlCol.setOnEditCommit(
                 (EventHandler<CellEditEvent<SimpleStore, String>>) t -> {
                     SimpleStore simpleStore = t.getTableView().getItems().get(
@@ -451,6 +590,7 @@ public class DbController {
                 }
         );
 
+        storeNamespaceCol.setCellFactory(TextFieldTableCell.forTableColumn());
         storeNamespaceCol.setOnEditCommit(
                 (EventHandler<CellEditEvent<SimpleStore, String>>) t -> {
                     SimpleStore simpleStore = t.getTableView().getItems().get(
@@ -461,6 +601,7 @@ public class DbController {
                 }
         );
 
+        storeDocCodeCol.setCellFactory(TextFieldTableCell.forTableColumn());
         storeDocCodeCol.setOnEditCommit(
                 (EventHandler<CellEditEvent<SimpleStore, String>>) t -> {
                     SimpleStore simpleStore = t.getTableView().getItems().get(
@@ -471,6 +612,7 @@ public class DbController {
                 }
         );
 
+        userLoginCol.setCellFactory(TextFieldTableCell.forTableColumn());
         userLoginCol.setOnEditCommit(
                 (EventHandler<CellEditEvent<SimpleUser, String>>) t -> {
                     SimpleUser simpleUser = t.getTableView().getItems().get(
@@ -480,6 +622,7 @@ public class DbController {
                 }
         );
 
+        userNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
         userNameCol.setOnEditCommit(
                 (EventHandler<CellEditEvent<SimpleUser, String>>) t -> {
                     SimpleUser simpleUser = t.getTableView().getItems().get(
@@ -489,6 +632,7 @@ public class DbController {
                 }
         );
 
+        serviceCodeCol.setCellFactory(TextFieldTableCell.forTableColumn());
         serviceCodeCol.setOnEditCommit(
                 (EventHandler<CellEditEvent<SimpleService, String>>) t -> {
                     SimpleService simpleService = t.getTableView().getItems().get(

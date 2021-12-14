@@ -39,10 +39,6 @@ public class SimpleStatusCode {
         this.id.set(id);
     }
 
-    public void setCode(int code) {
-        this.code.set(code);
-    }
-
     public void setName(String name) {
         this.name.set(name);
     }
